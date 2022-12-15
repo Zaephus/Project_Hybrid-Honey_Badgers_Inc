@@ -21,7 +21,8 @@ public class TrackGenerator : MonoBehaviour {
 
                 for(int j = 0; j < amountY; j++) {
                     GameObject obj = Instantiate(trackPrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
-                    rows[i].tracks.Add(obj.GetComponent<Track>());
+                    obj.GetComponent<TrackSelector>().SwitchChild((int)obj.GetComponent<TrackSelector>().type);
+                    rows[i].tracks.Add(obj.GetComponent<TrackSelector>());
                 }
             }
         }
@@ -39,7 +40,8 @@ public class TrackGenerator : MonoBehaviour {
             if(amountY > rows[i].tracks.Count) {
                 for(int j = rows[i].tracks.Count; j < amountY; j++) {
                     GameObject obj = Instantiate(trackPrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
-                    rows[i].tracks.Add(obj.GetComponent<Track>());
+                    obj.GetComponent<TrackSelector>().SwitchChild((int)obj.GetComponent<TrackSelector>().type);
+                    rows[i].tracks.Add(obj.GetComponent<TrackSelector>());
                 }
             }
             else if(amountY < rows[i].tracks.Count) {

@@ -6,6 +6,6 @@ using UnityEngine;
 public class TrackRow {
 
     [SerializeField]
-    public List<Track> tracks = new List<Track>();
+    public List<TrackSelector> tracks = new List<TrackSelector>();
 
 }
