@@ -7,8 +7,8 @@ public class SwitchTrack : BaseTrack
     private enum SwitchState { One, Two};
     [SerializeField] SwitchState state;
 
-    [SerializeField] private Transform[] pathOne;
-    [SerializeField] private Transform[] pathTwo;
+    [SerializeField] public Transform[] pathOne;
+    [SerializeField] public Transform[] pathTwo;
 
     public void Switch()
     {

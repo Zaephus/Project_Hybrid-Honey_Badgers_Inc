@@ -6,10 +6,24 @@ public class BaseTrack : MonoBehaviour
 {
     //public zodat de trein m kan vinden
     public Transform[] pathPoints;
+    public BaseTrack previousTrack;
     public BaseTrack nextTrack;
     [SerializeField] private Color start;
     [SerializeField] private Color middle;
     [SerializeField] private Color end;
+
+    private void OnValidate() {
+        if(previousTrack == this) {
+            Debug.LogError("Previous track cannot be itself.");
+            previousTrack = null;
+        }
+        if(nextTrack == this) {
+            Debug.LogError("Next track cannot be itself.");
+            nextTrack = null;
+        }
+    }
+
+    private void Start() {}
 
     private void OnDrawGizmos()
     {
