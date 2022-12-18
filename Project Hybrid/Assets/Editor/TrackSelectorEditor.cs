@@ -20,6 +20,7 @@ public class TrackSelectorEditor : Editor
             {
                 selector.SwitchChild((int)selector.type);
                 selector.RotateChild((int)selector.rotation);
+                selector.generator.SetConnections();
             }
         }
     }
@@ -43,7 +44,7 @@ public class SwitchTrackEditor : Editor
 
             if (check.changed)
             {
-                switchTrack.Switch();
+                switchTrack.ChangeTracksInEditor();
             }
         }
     }
