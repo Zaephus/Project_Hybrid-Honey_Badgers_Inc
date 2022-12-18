@@ -19,6 +19,7 @@ public enum Rotation
     ThreeQuarters = 270
 };
 
+[SelectionBase]
 public class TrackSelector : MonoBehaviour {
 
     public TrackType type = 0;

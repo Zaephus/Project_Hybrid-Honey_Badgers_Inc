@@ -28,6 +28,7 @@ public class TrackSelectorEditor : Editor
     {
         selector = (TrackSelector)target;
     }
+
 }
 
 [CustomEditor(typeof(SwitchTrack))]
