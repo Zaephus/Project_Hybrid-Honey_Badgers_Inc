@@ -306,8 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cbbf1c118a141841b912317603d9e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.8
-  pathPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  moveSpeed: 2
+  startTrack: {fileID: 0}
+  currentTrack: {fileID: 0}

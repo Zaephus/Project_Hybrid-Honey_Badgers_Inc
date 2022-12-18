@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
     public enum TrackType {
-        Straight = 0,
-        Corner_Left = 1,
-        Corner_Right = 2,
-        Switch_StraightLeft = 3,
-        Switch_StraightRight = 4,
-        Switch_LeftRight = 5
+        None = 0,
+        Straight = 1,
+        Corner_Left = 2,
+        Corner_Right = 3,
+        Switch_StraightLeft = 4, // Only switch types should be numbered above this
+        Switch_StraightRight = 5,
+        Switch_LeftRight = 6
     };
 
 public enum Rotation
@@ -25,9 +26,16 @@ public class TrackSelector : MonoBehaviour {
     public TrackType type = 0;
     public Rotation rotation = 0;
 
+    public BaseTrack track;
+
+    public TrackGenerator generator;
     [SerializeField] private GameObject[] trackTypes;
     [SerializeField] private GameObject child;
-    public BaseTrack track;
+
+    public void Inititialize(TrackGenerator _generator) {
+        generator = _generator;
+        SwitchChild((int)type);
+    }
 
     public IEnumerator DestroySelf() {
 
