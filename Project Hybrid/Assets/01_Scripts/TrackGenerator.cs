@@ -118,12 +118,16 @@ public class TrackGenerator : MonoBehaviour {
 
                     if(otherTrackOne != null) {
                         switchTrack.nextTrackOne = otherTrackOne;
-                        otherTrackOne.previousTrack = switchTrack;
+                        if(otherTrackOne.nextTrack != switchTrack) {
+                            otherTrackOne.previousTrack = switchTrack;
+                        }
                     }
 
                     if(otherTrackTwo != null) {
                         switchTrack.nextTrackTwo = otherTrackTwo;
-                        otherTrackTwo.previousTrack = switchTrack;
+                        if(otherTrackTwo.nextTrack != switchTrack) {
+                            otherTrackTwo.previousTrack = switchTrack;
+                        }
                     }
 
                     switchTrack.ChangeTracksInEditor();
