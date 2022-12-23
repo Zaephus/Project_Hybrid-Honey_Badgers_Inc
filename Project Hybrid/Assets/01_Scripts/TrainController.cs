@@ -7,7 +7,7 @@ public class TrainController : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 1;
 
-    private Transform[] pathPoints = new Transform[3];
+    private List<Transform> pathPoints = new List<Transform>();
 
     [SerializeField]
     private BaseTrack startTrack;
@@ -61,7 +61,8 @@ public class TrainController : MonoBehaviour {
             currentTrack = nextTrack;
         }
         
-        pathPoints = currentTrack.pathPoints;
+        pathPoints.Clear();
+        pathPoints.AddRange(currentTrack.pathPoints);
 
         if(currentTrack is SwitchTrack) {
 
@@ -70,10 +71,12 @@ public class TrainController : MonoBehaviour {
             if(Vector3.Distance(transform.position, switchTrack.pathOne[0].position) > Vector3.Distance(transform.position, switchTrack.pathOne[2].position) || Vector3.Distance(transform.position, switchTrack.pathTwo[0].position) > Vector3.Distance(transform.position, switchTrack.pathTwo[2].position)) {
                 
                 if(Vector3.Distance(switchTrack.pathOne[0].position, pathPoints[0].position) <= 0.1f) {
-                    pathPoints = switchTrack.pathOne;
+                    pathPoints.Clear();
+                    pathPoints.AddRange(switchTrack.pathOne);
                 }
                 else {
-                    pathPoints = switchTrack.pathTwo;
+                    pathPoints.Clear();
+                    pathPoints.AddRange(switchTrack.pathTwo);
                 }
                 
                 pathPoints = ReversePath(pathPoints);
@@ -99,11 +102,11 @@ public class TrainController : MonoBehaviour {
 
     }
 
-    private Transform[] ReversePath(Transform[] _pathPoints) {
+    private List<Transform> ReversePath(List<Transform> _pathPoints) {
         foreach(Transform point in _pathPoints) {
             point.eulerAngles = new Vector3(point.eulerAngles.x, point.eulerAngles.y - 180, point.eulerAngles.z);
         }
-        System.Array.Reverse(_pathPoints);
+        _pathPoints.Reverse();
         return _pathPoints;
     } 
 
