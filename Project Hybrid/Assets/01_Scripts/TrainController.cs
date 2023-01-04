@@ -70,7 +70,7 @@ public class TrainController : MonoBehaviour {
 
             if(Vector3.Distance(transform.position, switchTrack.pathOne[0].position) > Vector3.Distance(transform.position, switchTrack.pathOne[2].position) || Vector3.Distance(transform.position, switchTrack.pathTwo[0].position) > Vector3.Distance(transform.position, switchTrack.pathTwo[2].position)) {
                 
-                if(Vector3.Distance(switchTrack.pathOne[0].position, pathPoints[0].position) <= 0.1f) {
+                if(Vector3.Distance(switchTrack.pathOne[2].position, transform.position) <= Vector3.Distance(switchTrack.pathTwo[2].position, transform.position)) {
                     pathPoints.Clear();
                     pathPoints.AddRange(switchTrack.pathOne);
                 }

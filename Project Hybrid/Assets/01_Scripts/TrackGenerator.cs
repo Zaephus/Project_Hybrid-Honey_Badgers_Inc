@@ -12,6 +12,7 @@ public class TrackGenerator : MonoBehaviour {
     [SerializeField]
     private GameObject trackPrefab;
 
+    [SerializeField, HideInInspector]
     private List<TrackRow> rows = new List<TrackRow>();
 
     public void Generate() {
@@ -89,7 +90,7 @@ public class TrackGenerator : MonoBehaviour {
                         }
                     }
 
-                    if(!(x+1 > rows.Count || rows[x+1].tracks[y].type == 0)) {
+                    if(!(x+1 >= rows.Count || rows[x+1].tracks[y].type == 0)) {
                         if(trackEndPosOne == rows[x+1].tracks[y].track.pathPoints[0].position || trackEndPosOne == rows[x+1].tracks[y].track.pathPoints[2].position) {
                             otherTrackOne = rows[x+1].tracks[y].track;
                         }
@@ -107,7 +108,7 @@ public class TrackGenerator : MonoBehaviour {
                         }
                     }
 
-                    if(!(y+1 > rows[x].tracks.Count || rows[x].tracks[y+1].type == 0)) {
+                    if(!(y+1 >= rows[x].tracks.Count || rows[x].tracks[y+1].type == 0)) {
                         if(trackEndPosOne == rows[x].tracks[y+1].track.pathPoints[0].position || trackEndPosOne == rows[x].tracks[y+1].track.pathPoints[2].position) {
                             otherTrackOne = rows[x].tracks[y+1].track;
                         }
@@ -144,7 +145,7 @@ public class TrackGenerator : MonoBehaviour {
                         }
                     }
 
-                    if(!(x+1 > rows.Count || rows[x+1].tracks[y].type == 0)) {
+                    if(!(x+1 >= rows.Count || rows[x+1].tracks[y].type == 0)) {
                         if(trackEndPos == rows[x+1].tracks[y].track.pathPoints[0].position || trackEndPos == rows[x+1].tracks[y].track.pathPoints[2].position) {
                             otherTrack = rows[x+1].tracks[y].track;
                         }
@@ -156,7 +157,7 @@ public class TrackGenerator : MonoBehaviour {
                         }
                     }
 
-                    if(!(y+1 > rows[x].tracks.Count || rows[x].tracks[y+1].type == 0)) {
+                    if(!(y+1 >= rows[x].tracks.Count || rows[x].tracks[y+1].type == 0)) {
                         if(trackEndPos == rows[x].tracks[y+1].track.pathPoints[0].position || trackEndPos == rows[x].tracks[y+1].track.pathPoints[2].position) {
                             otherTrack = rows[x].tracks[y+1].track;
                         }
