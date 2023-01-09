@@ -49,26 +49,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a46c29919625b4ca937ebfb8764a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathPoints:
-  - {fileID: 831684526018912984}
-  - {fileID: 5849936584215149631}
-  - {fileID: 6874177865528245479}
+  path:
+    pathPoints:
+    - {fileID: 831684526018912984}
+    - {fileID: 5849936584215149631}
+    - {fileID: 4950859334228888076}
   previousTrack: {fileID: 0}
   nextTrack: {fileID: 0}
   start: {r: 0, g: 1, b: 0.12042332, a: 1}
   middle: {r: 0, g: 0.11260891, b: 1, a: 1}
   end: {r: 1, g: 0, b: 0, a: 1}
   pathOne:
-  - {fileID: 831684526018912984}
-  - {fileID: 5849936584215149631}
-  - {fileID: 4950859334228888076}
+    pathPoints:
+    - {fileID: 831684526018912984}
+    - {fileID: 5849936584215149631}
+    - {fileID: 4950859334228888076}
   pathTwo:
-  - {fileID: 831684526018912984}
-  - {fileID: 5849936584215149631}
-  - {fileID: 6874177865528245479}
+    pathPoints:
+    - {fileID: 831684526018912984}
+    - {fileID: 5849936584215149631}
+    - {fileID: 6874177865528245479}
   nextTrackOne: {fileID: 0}
   nextTrackTwo: {fileID: 0}
-  state: 1
+  state: 0
   inputType: 0
 --- !u!1 &2079363137815654130
 GameObject:

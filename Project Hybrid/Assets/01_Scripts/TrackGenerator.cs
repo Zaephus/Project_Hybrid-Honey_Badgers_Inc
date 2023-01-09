@@ -15,6 +15,9 @@ public class TrackGenerator : MonoBehaviour {
     [SerializeField, HideInInspector]
     private List<TrackRow> rows = new List<TrackRow>();
 
+    [SerializeField]
+    public List<TrackPath> paths = new List<TrackPath>();
+
     public void Generate() {
         if(amountX > rows.Count) {
             for(int i = rows.Count; i < amountX; i++) {
@@ -61,114 +64,25 @@ public class TrackGenerator : MonoBehaviour {
 
     }
 
-    public void SetConnections() {
+    public void FillPathList() {
+
+        paths.Clear();
 
         for(int x = 0; x < rows.Count; x++) {
             for(int y = 0; y < rows[x].tracks.Count; y++) {
-                
-                TrackSelector selector = rows[x].tracks[y];
 
-                if(selector.type == 0) {
+                if(rows[x].tracks[y].type == 0) {
                     continue;
                 }
 
-                if(selector.type >= TrackType.Switch_StraightLeft) {
-
-                    SwitchTrack switchTrack = selector.track as SwitchTrack;
-
-                    Vector3 trackEndPosOne = switchTrack.pathOne[2].position;
-                    Vector3 trackEndPosTwo = switchTrack.pathTwo[2].position;
-                    BaseTrack otherTrackOne = null;
-                    BaseTrack otherTrackTwo = null;
-
-                    if(!(x-1 < 0 || rows[x-1].tracks[y].type == 0)) {
-                        if(trackEndPosOne == rows[x-1].tracks[y].track.pathPoints[0].position || trackEndPosOne == rows[x-1].tracks[y].track.pathPoints[2].position) {
-                            otherTrackOne = rows[x-1].tracks[y].track;
-                        }
-                        else if(trackEndPosTwo == rows[x-1].tracks[y].track.pathPoints[0].position || trackEndPosTwo == rows[x-1].tracks[y].track.pathPoints[2].position) {
-                            otherTrackTwo = rows[x-1].tracks[y].track;
-                        }
-                    }
-
-                    if(!(x+1 >= rows.Count || rows[x+1].tracks[y].type == 0)) {
-                        if(trackEndPosOne == rows[x+1].tracks[y].track.pathPoints[0].position || trackEndPosOne == rows[x+1].tracks[y].track.pathPoints[2].position) {
-                            otherTrackOne = rows[x+1].tracks[y].track;
-                        }
-                        else if(trackEndPosTwo == rows[x+1].tracks[y].track.pathPoints[0].position || trackEndPosTwo == rows[x+1].tracks[y].track.pathPoints[2].position) {
-                            otherTrackTwo = rows[x+1].tracks[y].track;
-                        }
-                    }
-
-                    if(!(y-1 < 0 || rows[x].tracks[y-1].type == 0)) {
-                        if(trackEndPosOne == rows[x].tracks[y-1].track.pathPoints[0].position || trackEndPosOne == rows[x].tracks[y-1].track.pathPoints[2].position) {
-                            otherTrackOne = rows[x].tracks[y-1].track;
-                        }
-                        else if(trackEndPosTwo == rows[x].tracks[y-1].track.pathPoints[0].position || trackEndPosTwo == rows[x].tracks[y-1].track.pathPoints[2].position) {
-                            otherTrackTwo = rows[x].tracks[y-1].track;
-                        }
-                    }
-
-                    if(!(y+1 >= rows[x].tracks.Count || rows[x].tracks[y+1].type == 0)) {
-                        if(trackEndPosOne == rows[x].tracks[y+1].track.pathPoints[0].position || trackEndPosOne == rows[x].tracks[y+1].track.pathPoints[2].position) {
-                            otherTrackOne = rows[x].tracks[y+1].track;
-                        }
-                        else if(trackEndPosTwo == rows[x].tracks[y+1].track.pathPoints[0].position || trackEndPosTwo == rows[x].tracks[y+1].track.pathPoints[2].position) {
-                            otherTrackTwo = rows[x].tracks[y+1].track;
-                        }
-                    }
-
-                    if(otherTrackOne != null) {
-                        switchTrack.nextTrackOne = otherTrackOne;
-                        if(otherTrackOne.nextTrack != switchTrack) {
-                            otherTrackOne.previousTrack = switchTrack;
-                        }
-                    }
-
-                    if(otherTrackTwo != null) {
-                        switchTrack.nextTrackTwo = otherTrackTwo;
-                        if(otherTrackTwo.nextTrack != switchTrack) {
-                            otherTrackTwo.previousTrack = switchTrack;
-                        }
-                    }
-
-                    switchTrack.ChangeTracksInEditor();
-                    
+                if(rows[x].tracks[y].type >= TrackType.Switch_StraightLeft) {
+                    SwitchTrack switchTrack = rows[x].tracks[y].track as SwitchTrack;
+                    paths.Add(switchTrack.pathOne);
+                    paths.Add(switchTrack.pathTwo);
+                    continue;
                 }
-                else {
 
-                    Vector3 trackEndPos = selector.track.pathPoints[2].position;
-                    BaseTrack otherTrack = null;
-
-                    if(!(x-1 < 0 || rows[x-1].tracks[y].type == 0)) {
-                        if(trackEndPos == rows[x-1].tracks[y].track.pathPoints[0].position || trackEndPos == rows[x-1].tracks[y].track.pathPoints[2].position) {
-                            otherTrack = rows[x-1].tracks[y].track;
-                        }
-                    }
-
-                    if(!(x+1 >= rows.Count || rows[x+1].tracks[y].type == 0)) {
-                        if(trackEndPos == rows[x+1].tracks[y].track.pathPoints[0].position || trackEndPos == rows[x+1].tracks[y].track.pathPoints[2].position) {
-                            otherTrack = rows[x+1].tracks[y].track;
-                        }
-                    }
-
-                    if(!(y-1 < 0 || rows[x].tracks[y-1].type == 0)) {
-                        if(trackEndPos == rows[x].tracks[y-1].track.pathPoints[0].position || trackEndPos == rows[x].tracks[y-1].track.pathPoints[2].position) {
-                            otherTrack = rows[x].tracks[y-1].track;
-                        }
-                    }
-
-                    if(!(y+1 >= rows[x].tracks.Count || rows[x].tracks[y+1].type == 0)) {
-                        if(trackEndPos == rows[x].tracks[y+1].track.pathPoints[0].position || trackEndPos == rows[x].tracks[y+1].track.pathPoints[2].position) {
-                            otherTrack = rows[x].tracks[y+1].track;
-                        }
-                    }
-
-                    if(otherTrack != null) {
-                        selector.track.nextTrack = otherTrack;
-                        otherTrack.previousTrack = selector.track;
-                    }
-
-                }
+                paths.Add(rows[x].tracks[y].track.path);
 
             }
         }

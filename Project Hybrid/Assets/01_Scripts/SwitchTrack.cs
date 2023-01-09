@@ -5,11 +5,8 @@ using UnityEngine;
 public class SwitchTrack : BaseTrack
 {
 
-    public Transform[] pathOne;
-    public Transform[] pathTwo;
-
-    public BaseTrack nextTrackOne;
-    public BaseTrack nextTrackTwo;
+    public TrackPath pathOne;
+    public TrackPath pathTwo;
 
     private enum SwitchState { One, Two};
     [SerializeField] private SwitchState state;
@@ -47,13 +44,11 @@ public class SwitchTrack : BaseTrack
     {
         if (state == SwitchState.One)
         {
-            pathPoints = pathOne;
-            nextTrack = nextTrackOne;
+            path.pathPoints = pathOne.pathPoints;
         }
         else
         {
-            pathPoints = pathTwo;
-            nextTrack = nextTrackTwo;
+            path.pathPoints = pathTwo.pathPoints;
         }
     }
 
@@ -63,14 +58,12 @@ public class SwitchTrack : BaseTrack
         if(state == SwitchState.One)
         {
             state = SwitchState.Two;
-            pathPoints = pathTwo;
-            nextTrack = nextTrackOne;
+            path.pathPoints = pathTwo.pathPoints;
         }
         else
         {
             state = SwitchState.One;
-            pathPoints = pathOne;
-            nextTrack = nextTrackTwo;
+            path.pathPoints = pathOne.pathPoints;
         }
     }
 }

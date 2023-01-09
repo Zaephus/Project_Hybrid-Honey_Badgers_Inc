@@ -24,6 +24,10 @@ public class TrackEditor : Editor {
             trackGen.Generate();
         }
 
+        if(GUILayout.Button("Fill Path List")) {
+            trackGen.FillPathList();
+        }
+
         if(GUILayout.Button("Reset Tracks")) {
             trackGen.ResetTracks();
         }
