@@ -54,8 +54,7 @@ MonoBehaviour:
     - {fileID: 4313715863236548047}
     - {fileID: 7023644300434066216}
     - {fileID: 8422616711043661083}
-  previousTrack: {fileID: 0}
-  nextTrack: {fileID: 0}
+    switchTrack: {fileID: 0}
   start: {r: 0, g: 1, b: 0.12042332, a: 1}
   middle: {r: 0, g: 0.11260891, b: 1, a: 1}
   end: {r: 1, g: 0, b: 0, a: 1}
@@ -64,13 +63,13 @@ MonoBehaviour:
     - {fileID: 4313715863236548047}
     - {fileID: 7023644300434066216}
     - {fileID: 8422616711043661083}
+    switchTrack: {fileID: 0}
   pathTwo:
     pathPoints:
     - {fileID: 4313715863236548047}
     - {fileID: 7023644300434066216}
     - {fileID: 8012507688901315568}
-  nextTrackOne: {fileID: 0}
-  nextTrackTwo: {fileID: 0}
+    switchTrack: {fileID: 0}
   state: 0
   inputType: 0
 --- !u!1 &4200784053713742308
@@ -212,14 +211,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7055734468457980105}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2332281582497632587}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &7543630470848785390
 GameObject:
   m_ObjectHideFlags: 0
