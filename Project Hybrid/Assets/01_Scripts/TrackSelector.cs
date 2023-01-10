@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-    public enum TrackType {
-        None = 0,
-        Straight = 1,
-        Corner_Left = 2,
-        Corner_Right = 3,
-        Switch_StraightLeft = 4, // Only switch types should be numbered above this
-        Switch_StraightRight = 5,
-        Switch_LeftRight = 6
-    };
+public enum TrackType {
+    None = 0,
+    Straight = 1,
+    Corner = 2,
+    StartPoint = 3,
+    EndPoint = 4,
+    Switch_StraightLeft = 5, // Only switch types should be numbered higher than this
+    Switch_StraightRight = 6,
+    Switch_LeftRight = 7
+};
 
 public enum Rotation
 {

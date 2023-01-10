@@ -13,21 +13,14 @@ public class TrainController : MonoBehaviour {
     [SerializeField]
     private TrackGenerator trackGenerator;
 
-    [SerializeField]
-    private BaseTrack startTrack;
-
-    [SerializeField]
     private TrackPath currentPath;
-    [SerializeField]
     private TrackPath nextPath;
 
     private void Start() {
-        currentPath = startTrack.path;
-        nextPath = startTrack.path;
+        currentPath = trackGenerator.startTrack.path;
+        nextPath = trackGenerator.startTrack.path;
         SetPathPoints();
     }
-
-    private void Update() {}
 
     private IEnumerator MoveOverPathPoints() {
 

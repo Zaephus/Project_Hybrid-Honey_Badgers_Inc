@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    private void Start() {}
+    private void Start() {
+        EndPoint.EndPointReached += EndLevel;
+    }
 
     private void Update() {
         InputManager.Update();
+    }
+
+    private void EndLevel() {
+        Debug.Log("End Reached");
     }
 
 }

@@ -22,6 +22,7 @@ public class TrackSelectorEditor : Editor
                 selector.SwitchChild((int)selector.type);
                 selector.RotateChild((int)selector.rotation);
                 selector.generator.FillPathList();
+                selector.generator.SetStartTrack();
 
                 if(selector.type >= TrackType.Switch_StraightLeft) {
                     SwitchTrack switchTrack = selector.track as SwitchTrack;
