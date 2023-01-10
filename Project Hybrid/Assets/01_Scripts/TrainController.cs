@@ -7,21 +7,24 @@ public class TrainController : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 1;
 
+    [SerializeField]
     private List<Transform> pathPoints = new List<Transform>();
 
     [SerializeField]
-    private BaseTrack startTrack;
+    private TrackGenerator trackGenerator;
+
     [SerializeField]
-    private BaseTrack currentTrack;
+    private BaseTrack startTrack;
 
-    private BaseTrack nextTrack;
-
-    private bool isReversed;
+    [SerializeField]
+    private TrackPath currentPath;
+    [SerializeField]
+    private TrackPath nextPath;
 
     private void Start() {
-        currentTrack = startTrack;
-        nextTrack = startTrack;
-        SetPath();
+        currentPath = startTrack.path;
+        nextPath = startTrack.path;
+        SetPathPoints();
     }
 
     private void Update() {}
@@ -44,70 +47,92 @@ public class TrainController : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
+        yield return new WaitForEndOfFrame();
+
         transform.localRotation = pathPoints[2].rotation;
         
-        if(nextTrack == null) {
+        if(nextPath == null || nextPath.pathPoints.Count == 0) {
             Debug.LogWarning("Dead End");
         }
         else {
-            SetPath();
+            currentPath = nextPath;
+            SetPathPoints();
         }
 
     }
 
-    private void SetPath() {
+    private void SetPathPoints() {
 
-        if(nextTrack != null) {
-            currentTrack = nextTrack;
+        //The train is at the start of the currentPath when this code is executed,
+        //since before it was called currentPath was set to nextPath.
+
+        //Setting the current pathpoints
+
+        for(int i = 0; i < pathPoints.Count; i++) {
+            pathPoints[i].position = currentPath.pathPoints[i].position;
+            pathPoints[i].rotation = currentPath.pathPoints[i].rotation;
         }
+
+        if(Vector3.Distance(transform.position, currentPath.pathPoints[0].position) > Vector3.Distance(transform.position, currentPath.pathPoints[2].position)) {
+            pathPoints = ReversePath(pathPoints);
+        }
+
+        //Setting the nextpath
         
-        pathPoints.Clear();
-        pathPoints.AddRange(currentTrack.pathPoints);
+        StartCoroutine(MoveOverPathPoints());
+        StartCoroutine(SetNextPath());
 
-        if(currentTrack is SwitchTrack) {
+    }
 
-            SwitchTrack switchTrack = (SwitchTrack)currentTrack;
+    private IEnumerator SetNextPath() {
 
-            if(Vector3.Distance(transform.position, switchTrack.pathOne[0].position) > Vector3.Distance(transform.position, switchTrack.pathOne[2].position) || Vector3.Distance(transform.position, switchTrack.pathTwo[0].position) > Vector3.Distance(transform.position, switchTrack.pathTwo[2].position)) {
-                
-                if(Vector3.Distance(switchTrack.pathOne[0].position, pathPoints[0].position) <= 0.1f) {
-                    pathPoints.Clear();
-                    pathPoints.AddRange(switchTrack.pathOne);
+        List<TrackPath> possiblePaths = new List<TrackPath>();
+
+        foreach(TrackPath path in trackGenerator.paths) {
+            if(path.pathPoints[1].position == currentPath.pathPoints[1].position) {
+                continue;
+            }
+            if(Vector3.Distance(pathPoints[2].position, path.pathPoints[0].position) <= 0.5f) {
+                possiblePaths.Add(path);
+            }
+            if(Vector3.Distance(pathPoints[2].position, path.pathPoints[2].position) <= 0.5f) {
+                possiblePaths.Add(path);
+            }
+        }
+
+        if(possiblePaths.Count == 2) {
+            if(possiblePaths[0].switchTrack != possiblePaths[1].switchTrack) {
+                nextPath = possiblePaths[0];
+            }
+            else {
+                SwitchTrack switchTrack = possiblePaths[0].switchTrack;
+                if(switchTrack.path.pathPoints[2].position == possiblePaths[0].pathPoints[2].position) {
+                    nextPath = possiblePaths[0];
                 }
                 else {
-                    pathPoints.Clear();
-                    pathPoints.AddRange(switchTrack.pathTwo);
+                    nextPath = possiblePaths[1];
                 }
-                
-                pathPoints = ReversePath(pathPoints);
-                nextTrack = currentTrack.previousTrack;
-
             }
-            else {
-                nextTrack = currentTrack.nextTrack;
-            }
-
+        }
+        else if(possiblePaths.Count == 1) {
+            nextPath = possiblePaths[0];
         }
         else {
-            if(Vector3.Distance(transform.position, pathPoints[0].position) > Vector3.Distance(transform.position, pathPoints[2].position)) {
-                pathPoints = ReversePath(pathPoints);
-                nextTrack = currentTrack.previousTrack;
-            }
-            else {
-                nextTrack = currentTrack.nextTrack;
-            }
+            nextPath = null;
         }
 
-        StartCoroutine(MoveOverPathPoints());
+        yield return null;
 
     }
 
     private List<Transform> ReversePath(List<Transform> _pathPoints) {
-        foreach(Transform point in _pathPoints) {
-            point.eulerAngles = new Vector3(point.eulerAngles.x, point.eulerAngles.y - 180, point.eulerAngles.z);
+        List<Transform> points = new List<Transform>();
+        points.AddRange(_pathPoints);
+        foreach(Transform point in points) {
+            point.eulerAngles = new Vector3(point.eulerAngles.x, point.eulerAngles.y + 180, point.eulerAngles.z);
         }
-        _pathPoints.Reverse();
-        return _pathPoints;
+        points.Reverse();
+        return points;
     } 
 
 }

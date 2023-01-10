@@ -49,23 +49,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09a46c29919625b4ca937ebfb8764a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathPoints:
-  - {fileID: 962463869464634923}
-  - {fileID: 6340717761020901580}
-  - {fileID: 4784260092922842879}
+  path:
+    pathPoints:
+    - {fileID: 962463869464634923}
+    - {fileID: 6340717761020901580}
+    - {fileID: 4784260092922842879}
   previousTrack: {fileID: 0}
   nextTrack: {fileID: 0}
   start: {r: 0, g: 1, b: 0.12042332, a: 1}
   middle: {r: 0, g: 0.11260891, b: 1, a: 1}
   end: {r: 1, g: 0, b: 0, a: 1}
   pathOne:
-  - {fileID: 962463869464634923}
-  - {fileID: 6340717761020901580}
-  - {fileID: 4784260092922842879}
+    pathPoints:
+    - {fileID: 962463869464634923}
+    - {fileID: 6340717761020901580}
+    - {fileID: 4784260092922842879}
   pathTwo:
-  - {fileID: 962463869464634923}
-  - {fileID: 6340717761020901580}
-  - {fileID: 6463821295731898388}
+    pathPoints:
+    - {fileID: 962463869464634923}
+    - {fileID: 6340717761020901580}
+    - {fileID: 6463821295731898388}
   nextTrackOne: {fileID: 0}
   nextTrackTwo: {fileID: 0}
   state: 0

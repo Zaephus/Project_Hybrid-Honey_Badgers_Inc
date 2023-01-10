@@ -238,10 +238,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d701c0342e16531498f13fb7baf04424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathPoints:
-  - {fileID: 4220041607510538306}
-  - {fileID: 82747874301400158}
-  - {fileID: 5648697816990240986}
+  path:
+    pathPoints:
+    - {fileID: 4220041607510538306}
+    - {fileID: 82747874301400158}
+    - {fileID: 5648697816990240986}
   previousTrack: {fileID: 0}
   nextTrack: {fileID: 0}
   start: {r: 0, g: 1, b: 0.12042332, a: 1}
