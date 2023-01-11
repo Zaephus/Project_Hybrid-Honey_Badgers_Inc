@@ -16,6 +16,7 @@ public class SwitchTrackEditor : Editor
             if (check.changed)
             {
                 switchTrack.ChangeTracksInEditor();
+                ChangeIcon();
             }
         }
     }
@@ -24,4 +25,32 @@ public class SwitchTrackEditor : Editor
     {
         switchTrack = (SwitchTrack)target;
     }
+
+    private void ChangeIcon() {
+        if(switchTrack.iconTransform.childCount != 0) {
+            GameObject child = switchTrack.iconTransform.GetChild(0).gameObject;
+            DestroyImmediate(child);
+        }
+
+        switch(switchTrack.inputType) {
+
+            case SwitchTrack.InputType.Green:
+                Instantiate(switchTrack.greenInputIcon, switchTrack.iconTransform.position, Quaternion.identity, switchTrack.iconTransform);
+                break;
+
+            case SwitchTrack.InputType.Yellow:
+                Instantiate(switchTrack.yellowInputIcon, switchTrack.iconTransform.position, Quaternion.identity, switchTrack.iconTransform);
+                break;
+
+            case SwitchTrack.InputType.Blue:
+                Instantiate(switchTrack.blueInputIcon, switchTrack.iconTransform.position, Quaternion.identity, switchTrack.iconTransform);
+                break;
+
+            case SwitchTrack.InputType.Red:
+                Instantiate(switchTrack.redInputIcon, switchTrack.iconTransform.position, Quaternion.identity, switchTrack.iconTransform);
+                break;
+
+        }
+    }
+
 }

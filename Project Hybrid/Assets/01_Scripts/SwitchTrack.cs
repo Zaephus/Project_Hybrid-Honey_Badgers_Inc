@@ -2,22 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwitchTrack : BaseTrack
-{
+public class SwitchTrack : BaseTrack {
 
     public TrackPath pathOne;
     public TrackPath pathTwo;
 
-    private enum SwitchState { One, Two};
-    [SerializeField] private SwitchState state;
+    [SerializeField]
+    private GameObject switchStateOneIndicator;
+    [SerializeField]
+    private GameObject switchStateTwoIndicator;
 
-    private enum InputType {
+    private enum SwitchState { 
+        One, 
+        Two
+    };
+    [SerializeField]
+    private SwitchState state;
+
+    public Transform iconTransform;
+
+    public GameObject greenInputIcon;
+    public GameObject yellowInputIcon;
+    public GameObject blueInputIcon;
+    public GameObject redInputIcon;
+
+    public enum InputType {
         Green = 0,
         Yellow = 1,
         Blue = 2,
         Red = 3
     }
-    [SerializeField] private InputType inputType;
+    public InputType inputType;
 
     private void Start() {
         switch(inputType) {
@@ -45,10 +60,14 @@ public class SwitchTrack : BaseTrack
         if (state == SwitchState.One)
         {
             path.pathPoints = pathOne.pathPoints;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
             path.pathPoints = pathTwo.pathPoints;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 
@@ -59,11 +78,15 @@ public class SwitchTrack : BaseTrack
         {
             state = SwitchState.Two;
             path.pathPoints = pathTwo.pathPoints;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
             state = SwitchState.One;
             path.pathPoints = pathOne.pathPoints;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }
