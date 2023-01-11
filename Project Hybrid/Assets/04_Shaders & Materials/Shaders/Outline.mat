@@ -25,11 +25,12 @@ Material:
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -95,7 +96,8 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Cellshading: 225
+    - _CastShadows: 1
+    - _Cellshading: 245
     - _Chell_Shading: 255
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -115,7 +117,7 @@ Material:
     - _Line_Thickness: 5
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _Outine_thickness: 3
+    - _Outine_thickness: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -126,7 +128,9 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
