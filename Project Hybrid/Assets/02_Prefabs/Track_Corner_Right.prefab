@@ -354,9 +354,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8269026855675267816, guid: ea0ecc837e3508c45ab41447e4fa4e3e, type: 3}
-  - {fileID: -4068607939013222979, guid: ea0ecc837e3508c45ab41447e4fa4e3e, type: 3}
-  - {fileID: 6778134524993308638, guid: ea0ecc837e3508c45ab41447e4fa4e3e, type: 3}
+  - {fileID: 2100000, guid: 049fdf94f4b81e242b5647d417d578ca, type: 2}
+  - {fileID: 2100000, guid: 04272150d4d2ec745894eb282fc046f4, type: 2}
+  - {fileID: 2100000, guid: ab09c25258e300f46b0e95ebaa5fbc73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -651,8 +651,7 @@ MonoBehaviour:
     - {fileID: 5833933237322044552}
     - {fileID: 635958451692632068}
     - {fileID: 3457596264253852301}
-  previousTrack: {fileID: 0}
-  nextTrack: {fileID: 0}
+    switchTrack: {fileID: 0}
   start: {r: 0, g: 1, b: 0.12042332, a: 1}
   middle: {r: 0, g: 0.11260891, b: 1, a: 1}
   end: {r: 1, g: 0, b: 0, a: 1}

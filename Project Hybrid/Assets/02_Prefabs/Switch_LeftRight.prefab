@@ -54,8 +54,7 @@ MonoBehaviour:
     - {fileID: 962463869464634923}
     - {fileID: 6340717761020901580}
     - {fileID: 4784260092922842879}
-  previousTrack: {fileID: 0}
-  nextTrack: {fileID: 0}
+    switchTrack: {fileID: 0}
   start: {r: 0, g: 1, b: 0.12042332, a: 1}
   middle: {r: 0, g: 0.11260891, b: 1, a: 1}
   end: {r: 1, g: 0, b: 0, a: 1}
@@ -64,13 +63,13 @@ MonoBehaviour:
     - {fileID: 962463869464634923}
     - {fileID: 6340717761020901580}
     - {fileID: 4784260092922842879}
+    switchTrack: {fileID: 0}
   pathTwo:
     pathPoints:
     - {fileID: 962463869464634923}
     - {fileID: 6340717761020901580}
     - {fileID: 6463821295731898388}
-  nextTrackOne: {fileID: 0}
-  nextTrackTwo: {fileID: 0}
+    switchTrack: {fileID: 0}
   state: 0
   inputType: 0
 --- !u!1 &3723225593733017737
@@ -134,9 +133,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8269026855675267816, guid: 0e27e8e29a621254f86d267349594199, type: 3}
-  - {fileID: 6778134524993308638, guid: 0e27e8e29a621254f86d267349594199, type: 3}
-  - {fileID: -4068607939013222979, guid: 0e27e8e29a621254f86d267349594199, type: 3}
+  - {fileID: 2100000, guid: 049fdf94f4b81e242b5647d417d578ca, type: 2}
+  - {fileID: 2100000, guid: ab09c25258e300f46b0e95ebaa5fbc73, type: 2}
+  - {fileID: 2100000, guid: 04272150d4d2ec745894eb282fc046f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
