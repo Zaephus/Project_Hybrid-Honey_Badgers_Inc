@@ -13,22 +13,14 @@ public class TrainController : MonoBehaviour {
     [SerializeField]
     private TrackGenerator trackGenerator;
 
-    [SerializeField]
-    private BaseTrack startTrack;
-
-    [SerializeField]
     private TrackPath currentPath;
-    [SerializeField]
     private TrackPath nextPath;
 
     private void Start() {
-        currentPath = startTrack.path;
-        nextPath = startTrack.path;
-        pathPoints.AddRange(currentPath.pathPoints);
-        SetNextPath();
+        currentPath = trackGenerator.startTrack.path;
+        nextPath = trackGenerator.startTrack.path;
+        SetPathPoints();
     }
-
-    private void Update() {}
 
     private IEnumerator MoveOverPathPoints() {
 
@@ -57,26 +49,36 @@ public class TrainController : MonoBehaviour {
         }
         else {
             currentPath = nextPath;
-            SetNextPath();
+            SetPathPoints();
         }
 
     }
 
-    private void SetNextPath() {
+    private void SetPathPoints() {
 
         //The train is at the start of the currentPath when this code is executed,
         //since before it was called currentPath was set to nextPath.
 
         //Setting the current pathpoints
 
-        pathPoints.Clear();
-        pathPoints.AddRange(currentPath.pathPoints);
+        for(int i = 0; i < pathPoints.Count; i++) {
+            pathPoints[i].position = currentPath.pathPoints[i].position;
+            pathPoints[i].rotation = currentPath.pathPoints[i].rotation;
+        }
 
         if(Vector3.Distance(transform.position, currentPath.pathPoints[0].position) > Vector3.Distance(transform.position, currentPath.pathPoints[2].position)) {
             pathPoints = ReversePath(pathPoints);
         }
 
         //Setting the nextpath
+        
+        StartCoroutine(MoveOverPathPoints());
+        StartCoroutine(SetNextPath());
+
+    }
+
+    private IEnumerator SetNextPath() {
+
         List<TrackPath> possiblePaths = new List<TrackPath>();
 
         foreach(TrackPath path in trackGenerator.paths) {
@@ -97,7 +99,6 @@ public class TrainController : MonoBehaviour {
             }
             else {
                 SwitchTrack switchTrack = possiblePaths[0].switchTrack;
-                Debug.Log(switchTrack);
                 if(switchTrack.path.pathPoints[2].position == possiblePaths[0].pathPoints[2].position) {
                     nextPath = possiblePaths[0];
                 }
@@ -110,10 +111,10 @@ public class TrainController : MonoBehaviour {
             nextPath = possiblePaths[0];
         }
         else {
-            nextPath.pathPoints.Clear();
+            nextPath = null;
         }
 
-        StartCoroutine(MoveOverPathPoints());
+        yield return null;
 
     }
 

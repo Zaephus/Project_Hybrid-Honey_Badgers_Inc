@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class TrackGenerator : MonoBehaviour {
 
+    [HideInInspector]
+    public List<TrackPath> paths = new List<TrackPath>();
+    [HideInInspector]
+    public BaseTrack startTrack;
+
     [SerializeField, Range(10, 40)]
     private int amountX = 15;
     [SerializeField, Range(10, 40)]
@@ -15,10 +20,8 @@ public class TrackGenerator : MonoBehaviour {
     [SerializeField, HideInInspector]
     private List<TrackRow> rows = new List<TrackRow>();
 
-    [SerializeField]
-    public List<TrackPath> paths = new List<TrackPath>();
-
     public void Generate() {
+
         if(amountX > rows.Count) {
             for(int i = rows.Count; i < amountX; i++) {
                 rows.Add(new TrackRow());
@@ -41,7 +44,6 @@ public class TrackGenerator : MonoBehaviour {
         }
 
         for(int i = 0; i < rows.Count; i++) {
-
             if(amountY > rows[i].tracks.Count) {
                 for(int j = rows[i].tracks.Count; j < amountY; j++) {
                     GameObject obj = Instantiate(trackPrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
@@ -59,7 +61,6 @@ public class TrackGenerator : MonoBehaviour {
             if(rows[i].tracks.Count == 0) {
                 rows.RemoveAt(i);
             }
-
         }
 
     }
@@ -84,6 +85,20 @@ public class TrackGenerator : MonoBehaviour {
 
                 paths.Add(rows[x].tracks[y].track.path);
 
+            }
+        }
+
+    }
+
+    public void SetStartTrack() {
+        
+        for(int x = 0; x < rows.Count; x++) {
+            for(int y = 0; y < rows[x].tracks.Count; y++) {
+
+                if(rows[x].tracks[y].type == TrackType.StartPoint) {
+                    startTrack = rows[x].tracks[y].track;
+                    break;
+                }
             }
         }
 
