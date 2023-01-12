@@ -78,15 +78,15 @@ public class SwitchTrack : BaseTrack {
         {
             state = SwitchState.Two;
             path.pathPoints = pathTwo.pathPoints;
-            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
-            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
         }
         else
         {
             state = SwitchState.One;
             path.pathPoints = pathOne.pathPoints;
-            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
-            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
