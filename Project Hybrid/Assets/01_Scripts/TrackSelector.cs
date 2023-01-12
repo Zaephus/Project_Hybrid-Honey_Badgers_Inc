@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public enum TrackType {
     None = 0,
@@ -50,7 +51,9 @@ public class TrackSelector : MonoBehaviour {
         {
             DestroyImmediate(child);
         }
-        child = Instantiate(trackTypes[index], transform);
+        child = PrefabUtility.InstantiatePrefab(trackTypes[index]) as GameObject;
+        child.transform.SetParent(transform);
+        child.transform.position = transform.position;
         track = child.GetComponent<BaseTrack>();
     }
 

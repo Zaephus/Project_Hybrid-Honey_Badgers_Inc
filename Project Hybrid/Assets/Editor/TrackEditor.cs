@@ -3,38 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(TrackGenerator))]
+[CustomEditor(typeof(BaseTrack))]
 public class TrackEditor : Editor {
 
-    private TrackGenerator trackGen;
+    protected virtual void OnEnable() {
 
-    public override void OnInspectorGUI() {
-
-        using(var check = new EditorGUI.ChangeCheckScope()) {
-
-            base.OnInspectorGUI();
-
-            if(check.changed) {
-                trackGen.Generate();
+        GameObject targetGO = ((BaseTrack)target).gameObject;
+        SceneView sceneView = EditorWindow.focusedWindow as SceneView;
+        
+        if (targetGO.transform.parent != null && sceneView != null) {
+            GameObject[] currentSelection = Selection.gameObjects;
+            int idx = -1;
+            for (int i = 0; i < Selection.gameObjects.Length; i++) {
+                if (Selection.gameObjects[i].GetInstanceID() == targetGO.GetInstanceID()) {
+                    idx = i;
+                }
             }
-
+            if (idx != -1) {
+                currentSelection[idx] = targetGO.transform.parent.gameObject;;
+                Selection.objects = currentSelection;
+            }
+            return;
         }
 
-        if(GUILayout.Button("Generate Tracks")) {
-            trackGen.Generate();
-        }
-
-        if(GUILayout.Button("Fill Path List")) {
-            trackGen.FillPathList();
-        }
-
-        if(GUILayout.Button("Reset Tracks")) {
-            trackGen.ResetTracks();
-        }
-    }
-
-    private void OnEnable() {
-        trackGen = (TrackGenerator)target;
     }
 
 }
