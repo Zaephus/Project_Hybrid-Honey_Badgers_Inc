@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class TrackGenerator : MonoBehaviour {
 
@@ -9,9 +10,9 @@ public class TrackGenerator : MonoBehaviour {
     [HideInInspector]
     public BaseTrack startTrack;
 
-    [SerializeField, Range(10, 40)]
+    [SerializeField, Range(4, 40)]
     private int amountX = 15;
-    [SerializeField, Range(10, 40)]
+    [SerializeField, Range(4, 40)]
     private int amountY = 15;
 
     [SerializeField]
@@ -27,7 +28,10 @@ public class TrackGenerator : MonoBehaviour {
                 rows.Add(new TrackRow());
 
                 for(int j = 0; j < amountY; j++) {
-                    GameObject obj = Instantiate(trackPrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
+                    GameObject obj = PrefabUtility.InstantiatePrefab(trackPrefab) as GameObject;
+                    obj.transform.SetParent(transform);
+                    obj.transform.position = new Vector3(i, 0, j);
+                    obj.transform.rotation = Quaternion.identity;
                     TrackSelector selector = obj.GetComponent<TrackSelector>();
                     selector.Inititialize(this);
                     rows[i].tracks.Add(selector);
@@ -46,7 +50,10 @@ public class TrackGenerator : MonoBehaviour {
         for(int i = 0; i < rows.Count; i++) {
             if(amountY > rows[i].tracks.Count) {
                 for(int j = rows[i].tracks.Count; j < amountY; j++) {
-                    GameObject obj = Instantiate(trackPrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
+                    GameObject obj = PrefabUtility.InstantiatePrefab(trackPrefab) as GameObject;
+                    obj.transform.SetParent(transform);
+                    obj.transform.position = new Vector3(i, 0, j);
+                    obj.transform.rotation = Quaternion.identity;
                     obj.GetComponent<TrackSelector>().SwitchChild((int)obj.GetComponent<TrackSelector>().type);
                     rows[i].tracks.Add(obj.GetComponent<TrackSelector>());
                 }

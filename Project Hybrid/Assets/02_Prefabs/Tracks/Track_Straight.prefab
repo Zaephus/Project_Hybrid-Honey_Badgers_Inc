@@ -116,9 +116,6 @@ MonoBehaviour:
     - {fileID: 82747874301400158}
     - {fileID: 5648697816990240986}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &2654559014750539237
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +128,7 @@ GameObject:
   - component: {fileID: 5454690296023981752}
   - component: {fileID: 3785881074631212557}
   m_Layer: 0
-  m_Name: Vloer6
+  m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,9 +177,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8269026855675267816, guid: c30aee08a1fca2244bdfe810811d4a03, type: 3}
-  - {fileID: -4068607939013222979, guid: c30aee08a1fca2244bdfe810811d4a03, type: 3}
-  - {fileID: 6778134524993308638, guid: c30aee08a1fca2244bdfe810811d4a03, type: 3}
+  - {fileID: 2100000, guid: 049fdf94f4b81e242b5647d417d578ca, type: 2}
+  - {fileID: 2100000, guid: 04272150d4d2ec745894eb282fc046f4, type: 2}
+  - {fileID: 2100000, guid: ab09c25258e300f46b0e95ebaa5fbc73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

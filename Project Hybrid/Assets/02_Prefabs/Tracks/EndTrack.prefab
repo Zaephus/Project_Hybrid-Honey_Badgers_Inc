@@ -55,9 +55,6 @@ MonoBehaviour:
     - {fileID: 5284655961682540708}
     - {fileID: 8173502818351325907}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &5229744460373544712
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,9 +147,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8269026855675267816, guid: c30aee08a1fca2244bdfe810811d4a03, type: 3}
-  - {fileID: -4068607939013222979, guid: c30aee08a1fca2244bdfe810811d4a03, type: 3}
-  - {fileID: 6778134524993308638, guid: c30aee08a1fca2244bdfe810811d4a03, type: 3}
+  - {fileID: 2100000, guid: 049fdf94f4b81e242b5647d417d578ca, type: 2}
+  - {fileID: 2100000, guid: 04272150d4d2ec745894eb282fc046f4, type: 2}
+  - {fileID: 2100000, guid: ab09c25258e300f46b0e95ebaa5fbc73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -299,10 +296,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4597107667637640440, guid: 9433450745e54a7429bbcb836588b920, type: 3}
-  - {fileID: 5561349426305759274, guid: 9433450745e54a7429bbcb836588b920, type: 3}
-  - {fileID: 6034957751646507721, guid: 9433450745e54a7429bbcb836588b920, type: 3}
-  - {fileID: 8748892135801146194, guid: 9433450745e54a7429bbcb836588b920, type: 3}
+  - {fileID: 2100000, guid: 25defc9e0a7ea8e448a4cdf0c612c655, type: 2}
+  - {fileID: 2100000, guid: 3f82358e61488a541aefc03f87bb8a4f, type: 2}
+  - {fileID: 2100000, guid: f5a27032e15bd574080047c550bada75, type: 2}
+  - {fileID: 2100000, guid: 0b640aae31034284fb0e20f31a2b4c07, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

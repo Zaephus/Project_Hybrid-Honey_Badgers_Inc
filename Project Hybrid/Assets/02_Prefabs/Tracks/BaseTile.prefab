@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1561272103671692123}
   - component: {fileID: 1132654383080275301}
   - component: {fileID: 5739049549211812004}
-  - component: {fileID: 3556763018605742213}
+  - component: {fileID: 3723622892493471626}
   m_Layer: 0
   m_Name: BaseTile
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1837a3fb3b6763945a01b219b036ae69, type: 2}
+  - {fileID: 2100000, guid: 049fdf94f4b81e242b5647d417d578ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,16 +84,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3556763018605742213
-BoxCollider:
+--- !u!114 &3723622892493471626
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2656917849243602516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d701c0342e16531498f13fb7baf04424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path:
+    pathPoints: []
+    switchTrack: {fileID: 0}
