@@ -9,9 +9,10 @@ public enum TrackType {
     Corner = 2,
     StartPoint = 3,
     EndPoint = 4,
-    Switch_StraightLeft = 5, // Only switch types should be numbered higher than this
-    Switch_StraightRight = 6,
-    Switch_LeftRight = 7
+    Tunnel = 5,
+    Switch_StraightLeft = 6, // Only switch types should be numbered higher than this
+    Switch_StraightRight = 7,
+    Switch_LeftRight = 8
 };
 
 public enum Rotation

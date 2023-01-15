@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class TrackGenerator : MonoBehaviour {
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<TrackPath> paths = new List<TrackPath>();
     [HideInInspector]
     public BaseTrack startTrack;
@@ -18,8 +18,12 @@ public class TrackGenerator : MonoBehaviour {
     [SerializeField]
     private GameObject trackPrefab;
 
-    [SerializeField, HideInInspector]
+    [SerializeField]//, HideInInspector]
     private List<TrackRow> rows = new List<TrackRow>();
+
+    private void Start() {
+        FillPathList();
+    }
 
     public void Generate() {
 
@@ -89,6 +93,8 @@ public class TrackGenerator : MonoBehaviour {
                     paths.Add(switchTrack.pathTwo);
                     continue;
                 }
+
+                Debug.Log(rows[x].tracks[y]);
 
                 paths.Add(rows[x].tracks[y].track.path);
 
