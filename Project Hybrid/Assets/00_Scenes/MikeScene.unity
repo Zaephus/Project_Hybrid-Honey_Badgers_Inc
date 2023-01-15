@@ -264,7 +264,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &10280673
 GameObject:
@@ -385,9 +385,6 @@ MonoBehaviour:
     - {fileID: 1712669383}
     - {fileID: 836932730}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &21322002
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,9 +768,6 @@ MonoBehaviour:
     - {fileID: 1331249820}
     - {fileID: 2120428891}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &39651596
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,7 +4539,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pathPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 352665387}
+      objectReference: {fileID: 0}
     - target: {fileID: 5266875037928297226, guid: 48d1577d156fe9b4ba518cad44181de8,
         type: 3}
       propertyPath: m_Layer
@@ -4598,12 +4592,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d1577d156fe9b4ba518cad44181de8, type: 3}
---- !u!4 &352665387 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6874177865528245479, guid: 48d1577d156fe9b4ba518cad44181de8,
-    type: 3}
-  m_PrefabInstance: {fileID: 352665386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &355514984
 GameObject:
   m_ObjectHideFlags: 0
@@ -4953,6 +4941,80 @@ Transform:
   m_Father: {fileID: 1182805916}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &389179304
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 882129737928793925, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52194ba5864c8e14daa14c9eb2715332, type: 2}
+    - target: {fileID: 919132149155446097, guid: 13797475d94dcea4db949bbd7ce10e1c,
+        type: 3}
+      propertyPath: m_Name
+      value: Straight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13797475d94dcea4db949bbd7ce10e1c, type: 3}
 --- !u!1 &390488102
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,6 +6052,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735e34972f475fd43ae710f2996e7939, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paths:
+  - pathPoints:
+    - {fileID: 1076048813}
+    - {fileID: 1712669383}
+    - {fileID: 836932730}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 876121089}
+    - {fileID: 1416742233}
+    - {fileID: 734119669}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 1841154072}
+    - {fileID: 1632988145}
+    - {fileID: 943758973}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 828693935}
+    - {fileID: 144194085}
+    - {fileID: 1959188635}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 165858037}
+    - {fileID: 3407569}
+    - {fileID: 654110016}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 501763740}
+    - {fileID: 1331249820}
+    - {fileID: 2120428891}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 1231417897}
+    - {fileID: 72452532}
+    - {fileID: 1154977100}
+    switchTrack: {fileID: 565021317}
+  - pathPoints:
+    - {fileID: 1231417897}
+    - {fileID: 72452532}
+    - {fileID: 959581878}
+    switchTrack: {fileID: 565021317}
+  - pathPoints:
+    - {fileID: 1463927878}
+    - {fileID: 789279450}
+    - {fileID: 1448307565}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 730249232}
+    - {fileID: 68220464}
+    - {fileID: 215712104}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 1722506441}
+    - {fileID: 193994543}
+    - {fileID: 1390537285}
+    switchTrack: {fileID: 1500943362}
+  - pathPoints:
+    - {fileID: 1722506441}
+    - {fileID: 193994543}
+    - {fileID: 1707041254}
+    switchTrack: {fileID: 1500943362}
+  - pathPoints:
+    - {fileID: 1352519764}
+    - {fileID: 388422108}
+    - {fileID: 1059301012}
+    switchTrack: {fileID: 1182805917}
+  - pathPoints:
+    - {fileID: 1352519764}
+    - {fileID: 388422108}
+    - {fileID: 1985497940}
+    switchTrack: {fileID: 1182805917}
+  - pathPoints:
+    - {fileID: 2001265693}
+    - {fileID: 1781929288}
+    - {fileID: 2128212567}
+    switchTrack: {fileID: 0}
+  - pathPoints:
+    - {fileID: 1465350275}
+    - {fileID: 390488103}
+    - {fileID: 1700879897}
+    switchTrack: {fileID: 0}
+  startTrack: {fileID: 0}
   amountX: 10
   amountY: 10
   trackPrefab: {fileID: 4356144333326639343, guid: 6dfff226160055e40ac50a80331192d4,
@@ -6105,87 +6249,6 @@ MonoBehaviour:
     - {fileID: 427458367}
     - {fileID: 475982297}
     - {fileID: 167148571}
-  paths:
-  - pathPoints:
-    - {fileID: 1076048813}
-    - {fileID: 1712669383}
-    - {fileID: 836932730}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 876121089}
-    - {fileID: 1416742233}
-    - {fileID: 734119669}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 1841154072}
-    - {fileID: 1632988145}
-    - {fileID: 943758973}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 828693935}
-    - {fileID: 144194085}
-    - {fileID: 1959188635}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 165858037}
-    - {fileID: 3407569}
-    - {fileID: 654110016}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 501763740}
-    - {fileID: 1331249820}
-    - {fileID: 2120428891}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 1231417897}
-    - {fileID: 72452532}
-    - {fileID: 1154977100}
-    switchTrack: {fileID: 565021317}
-  - pathPoints:
-    - {fileID: 1231417897}
-    - {fileID: 72452532}
-    - {fileID: 959581878}
-    switchTrack: {fileID: 565021317}
-  - pathPoints:
-    - {fileID: 1463927878}
-    - {fileID: 789279450}
-    - {fileID: 1448307565}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 730249232}
-    - {fileID: 68220464}
-    - {fileID: 215712104}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 1722506441}
-    - {fileID: 193994543}
-    - {fileID: 1390537285}
-    switchTrack: {fileID: 1500943362}
-  - pathPoints:
-    - {fileID: 1722506441}
-    - {fileID: 193994543}
-    - {fileID: 1707041254}
-    switchTrack: {fileID: 1500943362}
-  - pathPoints:
-    - {fileID: 1352519764}
-    - {fileID: 388422108}
-    - {fileID: 1059301012}
-    switchTrack: {fileID: 1182805917}
-  - pathPoints:
-    - {fileID: 1352519764}
-    - {fileID: 388422108}
-    - {fileID: 1985497940}
-    switchTrack: {fileID: 1182805917}
-  - pathPoints:
-    - {fileID: 2001265693}
-    - {fileID: 1781929288}
-    - {fileID: 2128212567}
-    switchTrack: {fileID: 0}
-  - pathPoints:
-    - {fileID: 1465350275}
-    - {fileID: 390488103}
-    - {fileID: 1700879897}
-    switchTrack: {fileID: 0}
 --- !u!4 &474733917
 Transform:
   m_ObjectHideFlags: 0
@@ -6299,7 +6362,7 @@ Transform:
   - {fileID: 475982298}
   - {fileID: 167148572}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475982296
 GameObject:
@@ -6498,9 +6561,6 @@ MonoBehaviour:
     - {fileID: 789279450}
     - {fileID: 1448307565}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &493164429
 GameObject:
   m_ObjectHideFlags: 0
@@ -7532,9 +7592,6 @@ MonoBehaviour:
     - {fileID: 72452532}
     - {fileID: 1154977100}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
   pathOne:
     pathPoints:
     - {fileID: 1231417897}
@@ -7547,7 +7604,14 @@ MonoBehaviour:
     - {fileID: 72452532}
     - {fileID: 959581878}
     switchTrack: {fileID: 565021317}
+  switchStateOneIndicator: {fileID: 0}
+  switchStateTwoIndicator: {fileID: 0}
   state: 0
+  iconTransform: {fileID: 0}
+  greenInputIcon: {fileID: 0}
+  yellowInputIcon: {fileID: 0}
+  blueInputIcon: {fileID: 0}
+  redInputIcon: {fileID: 0}
   inputType: 0
 --- !u!1 &568806065
 GameObject:
@@ -9736,9 +9800,6 @@ MonoBehaviour:
     - {fileID: 1632988145}
     - {fileID: 943758973}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &779864303
 GameObject:
   m_ObjectHideFlags: 0
@@ -11537,7 +11598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &919731184
 GameObject:
@@ -13588,9 +13649,6 @@ MonoBehaviour:
     - {fileID: 68220464}
     - {fileID: 215712104}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1154977099
 GameObject:
   m_ObjectHideFlags: 0
@@ -14222,9 +14280,6 @@ MonoBehaviour:
     - {fileID: 388422108}
     - {fileID: 1059301012}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
   pathOne:
     pathPoints:
     - {fileID: 1352519764}
@@ -14237,7 +14292,14 @@ MonoBehaviour:
     - {fileID: 388422108}
     - {fileID: 1985497940}
     switchTrack: {fileID: 1182805917}
+  switchStateOneIndicator: {fileID: 0}
+  switchStateTwoIndicator: {fileID: 0}
   state: 0
+  iconTransform: {fileID: 0}
+  greenInputIcon: {fileID: 0}
+  yellowInputIcon: {fileID: 0}
+  blueInputIcon: {fileID: 0}
+  redInputIcon: {fileID: 0}
   inputType: 0
 --- !u!1 &1185580782
 GameObject:
@@ -14904,9 +14966,6 @@ MonoBehaviour:
     - {fileID: 3407569}
     - {fileID: 654110016}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1224797803
 GameObject:
   m_ObjectHideFlags: 0
@@ -15244,9 +15303,6 @@ MonoBehaviour:
     - {fileID: 390488103}
     - {fileID: 1700879897}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1242766877
 GameObject:
   m_ObjectHideFlags: 0
@@ -16481,9 +16537,6 @@ MonoBehaviour:
     - {fileID: 1416742233}
     - {fileID: 734119669}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1319883742
 GameObject:
   m_ObjectHideFlags: 0
@@ -17132,9 +17185,6 @@ MonoBehaviour:
     - {fileID: 144194085}
     - {fileID: 1959188635}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1375802874
 GameObject:
   m_ObjectHideFlags: 0
@@ -17189,9 +17239,6 @@ MonoBehaviour:
     - {fileID: 1781929288}
     - {fileID: 2128212567}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1376712193
 GameObject:
   m_ObjectHideFlags: 0
@@ -18691,9 +18738,6 @@ MonoBehaviour:
     - {fileID: 193994543}
     - {fileID: 1390537285}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
   pathOne:
     pathPoints:
     - {fileID: 1722506441}
@@ -18706,7 +18750,14 @@ MonoBehaviour:
     - {fileID: 193994543}
     - {fileID: 1707041254}
     switchTrack: {fileID: 1500943362}
+  switchStateOneIndicator: {fileID: 0}
+  switchStateTwoIndicator: {fileID: 0}
   state: 0
+  iconTransform: {fileID: 0}
+  greenInputIcon: {fileID: 0}
+  yellowInputIcon: {fileID: 0}
+  blueInputIcon: {fileID: 0}
+  redInputIcon: {fileID: 0}
   inputType: 0
 --- !u!1 &1501409424
 GameObject:
@@ -19974,7 +20025,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1621932045
 MonoBehaviour:
@@ -23605,9 +23656,6 @@ MonoBehaviour:
     - {fileID: 1777544059}
     - {fileID: 101524542}
     switchTrack: {fileID: 0}
-  start: {r: 0, g: 1, b: 0.12042332, a: 1}
-  middle: {r: 0, g: 0.11260891, b: 1, a: 1}
-  end: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1968106878
 GameObject:
   m_ObjectHideFlags: 0
@@ -26260,7 +26308,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 45, y: 180, z: 0}
 --- !u!114 &2136862635
 MonoBehaviour:
@@ -26483,7 +26531,7 @@ PrefabInstance:
     - target: {fileID: 3925696839403187138, guid: e04527b8923ddb74d9f00e30c374cbc5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3925696839403187138, guid: e04527b8923ddb74d9f00e30c374cbc5,
         type: 3}
@@ -26552,7 +26600,7 @@ PrefabInstance:
     - target: {fileID: 4763409783962298804, guid: 0e2d971d98cffe94fa0f183aaf4cbf8f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4763409783962298804, guid: 0e2d971d98cffe94fa0f183aaf4cbf8f,
         type: 3}
@@ -26626,7 +26674,7 @@ PrefabInstance:
     - target: {fileID: 5489006381012609815, guid: 15e37b5551cc2ed45b83313ad1a574a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5489006381012609815, guid: 15e37b5551cc2ed45b83313ad1a574a6,
         type: 3}
@@ -26695,7 +26743,7 @@ PrefabInstance:
     - target: {fileID: 5494493900959966837, guid: c0f0971635627b7459659809052981b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5494493900959966837, guid: c0f0971635627b7459659809052981b9,
         type: 3}
@@ -26764,7 +26812,7 @@ PrefabInstance:
     - target: {fileID: 8996011131481969847, guid: c6fa2521a2311a94391ecc307cb5bfa9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8996011131481969847, guid: c6fa2521a2311a94391ecc307cb5bfa9,
         type: 3}
@@ -26833,7 +26881,7 @@ PrefabInstance:
     - target: {fileID: 8933414536912909972, guid: f48f8be5e1f213d43a9abab20ea51a57,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8933414536912909972, guid: f48f8be5e1f213d43a9abab20ea51a57,
         type: 3}
