@@ -71,4 +71,10 @@ public class AudioManager : MonoBehaviour
         sound.audioSource.Stop();
     }
 
+    public void StopAll() {
+        foreach(Sound sound in sounds) {
+            sound.audioSource.Stop();
+        }
+    }
+
 }

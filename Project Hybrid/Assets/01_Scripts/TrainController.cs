@@ -5,7 +5,23 @@ using UnityEngine;
 
 public class TrainController : MonoBehaviour {
 
-    public bool isPaused;
+    public bool IsPaused {
+        get {
+            return isPaused;
+        }
+        set {
+            if(value) {
+                AudioManager.instance.Stop("Train Driving Sound");
+                smoke.SetActive(false);
+            }
+            else {
+                AudioManager.instance.Play("Train Driving Sound");
+                smoke.SetActive(true);
+            }
+            isPaused = value;
+        }
+    }  
+    private bool isPaused;
 
     public static Action HitDeadEnd;
 
@@ -21,6 +37,9 @@ public class TrainController : MonoBehaviour {
     private TrackPath currentPath;
     private TrackPath nextPath;
 
+    [SerializeField]
+    private GameObject smoke;
+
     private void Start() {
         currentPath = trackGenerator.startTrack.path;
         nextPath = trackGenerator.startTrack.path;
@@ -34,7 +53,7 @@ public class TrainController : MonoBehaviour {
         Quaternion startRotation = transform.rotation;
 
         while(Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(pathPoints[2].position.x, 0, pathPoints[2].position.z)) >= 0.01f) {
-            if(!isPaused) {
+            if(!IsPaused) {
                 Vector3 lerpOne = Vector3.Lerp(pathPoints[0].position, pathPoints[1].position, completion);
                 Vector3 lerpTwo = Vector3.Lerp(pathPoints[1].position, pathPoints[2].position, completion);
 

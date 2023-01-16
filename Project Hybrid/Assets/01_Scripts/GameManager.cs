@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour {
                     nextLevelMenu.SetActive(false);
                     failedMenu.SetActive(false);
                     endMenu.SetActive(false);
+                    
+                    AudioManager.instance.StopAll();
+                    AudioManager.instance.Play("Main Menu Music");
 
                     InputManager.isLevelPaused = true;
                     if(currentLevel != null) {
@@ -45,7 +48,7 @@ public class GameManager : MonoBehaviour {
 
                     InputManager.isLevelPaused = true;
                     if(currentLevel != null) {
-                        currentLevel.trainController.isPaused = true;
+                        currentLevel.trainController.IsPaused = true;
                     }
         
                     InputManager.AnySwitchPressed += NextLevel;
@@ -61,7 +64,7 @@ public class GameManager : MonoBehaviour {
 
                     InputManager.isLevelPaused = true;
                     if(currentLevel != null) {
-                        currentLevel.trainController.isPaused = true;
+                        currentLevel.trainController.IsPaused = true;
                     }
 
                     InputManager.AnySwitchPressed += RestartLevel;
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour {
 
                     InputManager.isLevelPaused = true;
                     if(currentLevel != null) {
-                        currentLevel.trainController.isPaused = true;
+                        currentLevel.trainController.IsPaused = true;
                     }
 
                     InputManager.AnySwitchPressed += EndGame;
@@ -91,9 +94,12 @@ public class GameManager : MonoBehaviour {
                     failedMenu.SetActive(false);
                     endMenu.SetActive(false);
 
+                    AudioManager.instance.Stop("Main Menu Music");
+                    AudioManager.instance.Play("Ambient Sound");
+
                     InputManager.isLevelPaused = false;
                     if(currentLevel != null) {
-                        currentLevel.trainController.isPaused = false;
+                        currentLevel.trainController.IsPaused = false;
                     }
 
                     break;
@@ -133,6 +139,10 @@ public class GameManager : MonoBehaviour {
 
     private void Update() {
         InputManager.Update();
+
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
     }
 
     private void RestartLevel() {
