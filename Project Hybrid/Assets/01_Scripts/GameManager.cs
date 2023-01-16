@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour {
             Debug.LogWarning("Level " + levelIndex + " does not exist!");
         }
 
+        InputManager.AnySwitchPressed -= NextLevel;
+
     }
 
     private void EndLevel() {

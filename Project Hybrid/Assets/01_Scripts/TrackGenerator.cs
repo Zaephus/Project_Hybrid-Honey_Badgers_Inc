@@ -90,11 +90,11 @@ public class TrackGenerator : MonoBehaviour {
                 if(rows[x].tracks[y].type >= TrackType.Switch_StraightLeft) {
                     SwitchTrack switchTrack = rows[x].tracks[y].track as SwitchTrack;
                     paths.Add(switchTrack.pathOne);
+                    switchTrack.pathOne.switchTrack = switchTrack;
                     paths.Add(switchTrack.pathTwo);
+                    switchTrack.pathTwo.switchTrack = switchTrack;
                     continue;
                 }
-
-                Debug.Log(rows[x].tracks[y]);
 
                 paths.Add(rows[x].tracks[y].track.path);
 

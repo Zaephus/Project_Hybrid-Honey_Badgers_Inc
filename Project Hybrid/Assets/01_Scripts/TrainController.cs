@@ -82,6 +82,9 @@ public class TrainController : MonoBehaviour {
         List<TrackPath> possiblePaths = new List<TrackPath>();
 
         foreach(TrackPath path in trackGenerator.paths) {
+            if(path.pathPoints.Count < 3) {
+                continue;
+            }
             if(path.pathPoints[1].position == currentPath.pathPoints[1].position) {
                 continue;
             }
