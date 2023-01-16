@@ -19,6 +19,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-5010797799967484164
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 528202b881110b443b398b51cca19a4f
+  m_EffectName: Attenuation
+  m_MixLevel: 754efdebbb88b6245a7f2e7ce67b0e6e
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-4597589361921709238
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -103,6 +117,7 @@ AudioMixerController:
     - 41fe8d7032c51e847a7250d7bd62b296
     - 5be63d1b608e1854c95cb84624830d19
     - f154a7ca7b8e4364d910eee14533f0ef
+    - c1b1c7fb286c15041979310eb8015670
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -120,6 +135,7 @@ AudioMixerGroupController:
   - {fileID: 2961931943014322328}
   - {fileID: -6206314605655296429}
   - {fileID: 1780052771912754118}
+  - {fileID: 7732266676176862194}
   m_Volume: 82f3e6e0f2816d149b971d2668c356a3
   m_Pitch: 93861a37c2edeb946838d2a2fcb54f35
   m_Send: 00000000000000000000000000000000
@@ -154,8 +170,9 @@ AudioMixerSnapshotController:
   m_SnapshotID: 96e0335a30aea174caa326530e13921a
   m_FloatValues:
     82f3e6e0f2816d149b971d2668c356a3: -0
-    235e2ee9a0a5473458e2a9779f589452: -9.833286
+    235e2ee9a0a5473458e2a9779f589452: -7.8940816
     bef4037b41da79941a1016a14f9a6853: -2.8722944
+    de69b7bf064aa0848baedc81a2d3603c: -6.133707
   m_TransitionOverrides: {}
 --- !u!243 &1780052771912754118
 AudioMixerGroupController:
@@ -191,6 +208,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 7782965552423356075}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &7732266676176862194
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Switch Click
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c1b1c7fb286c15041979310eb8015670
+  m_Children: []
+  m_Volume: de69b7bf064aa0848baedc81a2d3603c
+  m_Pitch: be26716d070e9b6488a540153436e400
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -5010797799967484164}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

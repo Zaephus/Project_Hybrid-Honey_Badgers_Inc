@@ -73,6 +73,9 @@ public class SwitchTrack : BaseTrack {
 
     public void ChangeTracks()
     {
+
+        AudioManager.instance.Play("Switch Click Sound");
+
         Debug.Log(name + "with type of " + inputType + "switched.");
         if(state == SwitchState.One)
         {

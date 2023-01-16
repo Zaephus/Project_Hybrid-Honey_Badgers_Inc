@@ -271,7 +271,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[1]
       value: 
-      objectReference: {fileID: 7343418985599368878, guid: 74673517e1ee4584b8f5535032be527e,
+      objectReference: {fileID: 2688034679062848746, guid: c4858978c4caac8408c3da8b8ce87262,
         type: 3}
     - target: {fileID: 6533785831844570473, guid: ab2a87eec1940fc469a747f28fd37f5a,
         type: 3}
@@ -283,6 +283,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6533785831844570478, guid: ab2a87eec1940fc469a747f28fd37f5a,
+        type: 3}
+      propertyPath: sounds.Array.data[4].mixerGroup
+      value: 
+      objectReference: {fileID: 7732266676176862194, guid: 17e2a333f3c303b4f96bc72d420a3954,
+        type: 2}
     - target: {fileID: 6533785831844570479, guid: ab2a87eec1940fc469a747f28fd37f5a,
         type: 3}
       propertyPath: m_RootOrder
