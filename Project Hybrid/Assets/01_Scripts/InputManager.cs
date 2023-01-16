@@ -10,19 +10,35 @@ public static class InputManager {
     public static Action BlueSwitchPressed;
     public static Action RedSwitchPressed;
 
+    public static Action AnySwitchPressed;
+    
+    public static bool isLevelPaused;
+
     public static void Update() {
 
         if(Input.GetKeyDown(KeyCode.A)) {
-            GreenSwitchPressed?.Invoke();
+            if(!isLevelPaused) {
+                GreenSwitchPressed?.Invoke();
+            }
+            AnySwitchPressed?.Invoke();
         }
         if(Input.GetKeyDown(KeyCode.S)) {
-            YellowSwitchPressed?.Invoke();
+            if(!isLevelPaused) {
+                YellowSwitchPressed?.Invoke();
+            }
+            AnySwitchPressed?.Invoke();
         }
         if(Input.GetKeyDown(KeyCode.D)) {
-            BlueSwitchPressed?.Invoke();
+            if(!isLevelPaused) {
+                BlueSwitchPressed?.Invoke();
+            }
+            AnySwitchPressed?.Invoke();
         }
         if(Input.GetKeyDown(KeyCode.F)) {
-            RedSwitchPressed?.Invoke();
+            if(!isLevelPaused) {
+                RedSwitchPressed?.Invoke();
+            }
+            AnySwitchPressed?.Invoke();
         }
 
     }

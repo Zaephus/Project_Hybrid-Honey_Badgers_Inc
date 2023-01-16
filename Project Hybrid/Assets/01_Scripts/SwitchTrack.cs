@@ -89,4 +89,25 @@ public class SwitchTrack : BaseTrack {
             switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
         }
     }
+
+    public void OnDestroy() {
+        switch(inputType) {
+            case InputType.Green:
+                InputManager.GreenSwitchPressed -= ChangeTracks;
+                break;
+
+            case InputType.Yellow:
+                InputManager.YellowSwitchPressed -= ChangeTracks;
+                break;
+
+            case InputType.Blue:
+                InputManager.BlueSwitchPressed -= ChangeTracks;
+                break;
+
+            case InputType.Red:
+                InputManager.RedSwitchPressed -= ChangeTracks;
+                break;
+
+        }
+    }
 }

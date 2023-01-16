@@ -19,7 +19,7 @@ public class TrackSelectorEditor : Editor
             if (check.changed)
             {
 
-                selector.SwitchChild((int)selector.type);
+                SwitchChild((int)selector.type);
                 selector.RotateChild((int)selector.rotation);
                 selector.generator.FillPathList();
                 selector.generator.SetStartTrack();
@@ -32,6 +32,18 @@ public class TrackSelectorEditor : Editor
 
             }
         }
+    }
+
+    private void SwitchChild(int index)
+    {
+        if (Application.isEditor && selector.child != null)
+        {
+            DestroyImmediate(selector.child);
+        }
+        selector.child = PrefabUtility.InstantiatePrefab(selector.trackTypes[index]) as GameObject;
+        selector.child.transform.SetParent(selector.transform);
+        selector.child.transform.position = selector.transform.position;
+        selector.track = selector.child.GetComponent<BaseTrack>();
     }
 
     private void OnEnable()

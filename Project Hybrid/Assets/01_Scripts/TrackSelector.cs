@@ -9,9 +9,10 @@ public enum TrackType {
     Corner = 2,
     StartPoint = 3,
     EndPoint = 4,
-    Switch_StraightLeft = 5, // Only switch types should be numbered higher than this
-    Switch_StraightRight = 6,
-    Switch_LeftRight = 7
+    Tunnel = 5,
+    Switch_StraightLeft = 6, // Only switch types should be numbered higher than this
+    Switch_StraightRight = 7,
+    Switch_LeftRight = 8
 };
 
 public enum Rotation
@@ -31,30 +32,19 @@ public class TrackSelector : MonoBehaviour {
     public BaseTrack track;
 
     public TrackGenerator generator;
-    [SerializeField] private GameObject[] trackTypes;
-    [SerializeField] private GameObject child;
+    public GameObject[] trackTypes;
+    public GameObject child;
 
     public void Inititialize(TrackGenerator _generator) {
         generator = _generator;
-        SwitchChild((int)type);
+        child = Instantiate(trackTypes[0], transform.position, Quaternion.identity, transform);
+        track = child.GetComponent<BaseTrack>();
     }
 
     public IEnumerator DestroySelf() {
 
         yield return new WaitForEndOfFrame();
         DestroyImmediate(this.gameObject);
-    }
-
-    public void SwitchChild(int index)
-    {
-        if (Application.isEditor && child != null)
-        {
-            DestroyImmediate(child);
-        }
-        child = PrefabUtility.InstantiatePrefab(trackTypes[index]) as GameObject;
-        child.transform.SetParent(transform);
-        child.transform.position = transform.position;
-        track = child.GetComponent<BaseTrack>();
     }
 
     public void RotateChild(int rotation)

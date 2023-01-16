@@ -1,8 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainController : MonoBehaviour {
+
+    public bool IsPaused {
+        get {
+            return isPaused;
+        }
+        set {
+            if(value) {
+                AudioManager.instance.Stop("Train Driving Sound");
+                smoke.SetActive(false);
+            }
+            else {
+                AudioManager.instance.Play("Train Driving Sound");
+                smoke.SetActive(true);
+            }
+            isPaused = value;
+        }
+    }  
+    private bool isPaused;
+
+    public static Action HitDeadEnd;
 
     [SerializeField]
     private float moveSpeed = 1;
@@ -15,6 +36,9 @@ public class TrainController : MonoBehaviour {
 
     private TrackPath currentPath;
     private TrackPath nextPath;
+
+    [SerializeField]
+    private GameObject smoke;
 
     private void Start() {
         currentPath = trackGenerator.startTrack.path;
@@ -29,14 +53,16 @@ public class TrainController : MonoBehaviour {
         Quaternion startRotation = transform.rotation;
 
         while(Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(pathPoints[2].position.x, 0, pathPoints[2].position.z)) >= 0.01f) {
-            Vector3 lerpOne = Vector3.Lerp(pathPoints[0].position, pathPoints[1].position, completion);
-            Vector3 lerpTwo = Vector3.Lerp(pathPoints[1].position, pathPoints[2].position, completion);
+            if(!IsPaused) {
+                Vector3 lerpOne = Vector3.Lerp(pathPoints[0].position, pathPoints[1].position, completion);
+                Vector3 lerpTwo = Vector3.Lerp(pathPoints[1].position, pathPoints[2].position, completion);
 
-            Vector3 move = Vector3.Lerp(lerpOne, lerpTwo, completion);
-            transform.position = new Vector3(move.x, transform.position.y, move.z);
-            transform.localRotation = Quaternion.Lerp(startRotation, pathPoints[2].rotation, completion);
+                Vector3 move = Vector3.Lerp(lerpOne, lerpTwo, completion);
+                transform.position = new Vector3(move.x, transform.position.y, move.z);
+                transform.localRotation = Quaternion.Lerp(startRotation, pathPoints[2].rotation, completion);
 
-            completion += moveSpeed * Time.deltaTime;
+                completion += moveSpeed * Time.deltaTime;
+            }
             yield return new WaitForEndOfFrame();
         }
 
@@ -45,6 +71,7 @@ public class TrainController : MonoBehaviour {
         transform.localRotation = pathPoints[2].rotation;
         
         if(nextPath == null || nextPath.pathPoints.Count == 0) {
+            HitDeadEnd?.Invoke();
             Debug.LogWarning("Dead End");
         }
         else {
@@ -82,6 +109,9 @@ public class TrainController : MonoBehaviour {
         List<TrackPath> possiblePaths = new List<TrackPath>();
 
         foreach(TrackPath path in trackGenerator.paths) {
+            if(path.pathPoints.Count < 3) {
+                continue;
+            }
             if(path.pathPoints[1].position == currentPath.pathPoints[1].position) {
                 continue;
             }
