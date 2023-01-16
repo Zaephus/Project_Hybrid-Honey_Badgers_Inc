@@ -39,18 +39,22 @@ public class SwitchTrack : BaseTrack {
         switch(inputType) {
             case InputType.Green:
                 InputManager.GreenSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.GreenLeverPulled += ChangeTracks;
                 break;
 
             case InputType.Yellow:
                 InputManager.YellowSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.YellowLeverPulled += ChangeTracks;
                 break;
 
             case InputType.Blue:
                 InputManager.BlueSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.BlueLeverPulled += ChangeTracks;
                 break;
 
             case InputType.Red:
                 InputManager.RedSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.RedLeverPulled += ChangeTracks;
                 break;
 
         }
@@ -120,18 +124,22 @@ public class SwitchTrack : BaseTrack {
         switch(inputType) {
             case InputType.Green:
                 InputManager.GreenSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.GreenLeverPulled -= ChangeTracks;
                 break;
 
             case InputType.Yellow:
                 InputManager.YellowSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.YellowLeverPulled -= ChangeTracks;
                 break;
 
             case InputType.Blue:
                 InputManager.BlueSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.BlueLeverPulled -= ChangeTracks;
                 break;
 
             case InputType.Red:
                 InputManager.RedSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.RedLeverPulled -= ChangeTracks;
                 break;
 
         }

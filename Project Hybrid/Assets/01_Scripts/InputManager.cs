@@ -19,6 +19,13 @@ public static class InputManager {
     
     public static bool isLevelPaused;
 
+    public static ArduinoConnection arduinoConnection;
+
+    private static float lastGreenReading;
+    private static float lastYellowReading;
+    private static float lastBlueReading;
+    private static float lastRedReading;
+
     public static void Update() {
 
         #region keyboard
@@ -52,32 +59,60 @@ public static class InputManager {
 
         #region levers
 
-        if(ArduinoConnection.greenSwitchData <= 160) {
+        if(arduinoConnection.greenSwitchData <= 160 && lastGreenReading > 160) {
+            lastGreenReading = 160;
             GreenLeverPulled?.Invoke(false);
+            AnySwitchPressed?.Invoke();
         }
-        else if(ArduinoConnection.greenSwitchData >= 200) {
+        else if(arduinoConnection.greenSwitchData >= 200 && lastGreenReading < 200) {
+            lastGreenReading = 160;
             GreenLeverPulled?.Invoke(true);
+            AnySwitchPressed?.Invoke();
+        }
+        else {
+            lastGreenReading = arduinoConnection.greenSwitchData;
         }
 
-        if(ArduinoConnection.yellowSwitchData <= 160) {
+        if(arduinoConnection.yellowSwitchData <= 160 && lastYellowReading > 160) {
+            lastYellowReading = 160;
             YellowLeverPulled?.Invoke(false);
+            AnySwitchPressed?.Invoke();
         }
-        else if(ArduinoConnection.yellowSwitchData >= 200) {
+        else if(arduinoConnection.yellowSwitchData >= 200 && lastYellowReading < 200) {
+            lastYellowReading = 160;
             YellowLeverPulled?.Invoke(true);
+            AnySwitchPressed?.Invoke();
+        }
+        else {
+            lastYellowReading = arduinoConnection.yellowSwitchData;
         }
 
-        if(ArduinoConnection.blueSwitchData <= 160) {
+        if(arduinoConnection.blueSwitchData <= 160 && lastBlueReading > 160) {
+            lastBlueReading = 160;
             BlueLeverPulled?.Invoke(false);
+            AnySwitchPressed?.Invoke();
         }
-        else if(ArduinoConnection.blueSwitchData >= 200) {
+        else if(arduinoConnection.blueSwitchData >= 200 && lastBlueReading < 200) {
+            lastBlueReading = 160;
             BlueLeverPulled?.Invoke(true);
+            AnySwitchPressed?.Invoke();
+        }
+        else {
+            lastBlueReading = arduinoConnection.blueSwitchData;
         }
 
-        if(ArduinoConnection.redSwitchData <= 160) {
+        if(arduinoConnection.redSwitchData <= 160 && lastRedReading > 160) {
+            lastRedReading = 160;
             RedLeverPulled?.Invoke(false);
+            AnySwitchPressed?.Invoke();
         }
-        else if(ArduinoConnection.redSwitchData >= 200) {
+        else if(arduinoConnection.redSwitchData >= 200 && lastRedReading < 200) {
+            lastRedReading = 160;
             RedLeverPulled?.Invoke(true);
+            AnySwitchPressed?.Invoke();
+        }
+        else {
+            lastRedReading = arduinoConnection.redSwitchData;
         }
 
         #endregion
