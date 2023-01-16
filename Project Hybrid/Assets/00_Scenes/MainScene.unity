@@ -233,6 +233,16 @@ PrefabInstance:
       objectReference: {fileID: 951823533452408866}
     - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
         type: 3}
+      propertyPath: usbPort
+      value: COM3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
+        type: 3}
+      propertyPath: bautRate
+      value: 19200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
+        type: 3}
       propertyPath: mainMenu
       value: 
       objectReference: {fileID: 128279976}

@@ -2576,6 +2576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CountdownCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4939844687926822030, guid: 456d7c99f66e6c44892d4fdc4a041fb2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8671932797495849987, guid: 456d7c99f66e6c44892d4fdc4a041fb2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8063,6 +8068,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7938706561154882102, guid: 351e0d847847e3f4e868cae67b8d557e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7965163646154389841, guid: 351e0d847847e3f4e868cae67b8d557e,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -9174,6 +9184,16 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 811016012585407261, guid: 48d1577d156fe9b4ba518cad44181de8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441284924514811803, guid: 48d1577d156fe9b4ba518cad44181de8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1976481809598483222, guid: 48d1577d156fe9b4ba518cad44181de8,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -9203,6 +9223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954090753645301051, guid: 48d1577d156fe9b4ba518cad44181de8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4164329938630994821, guid: 48d1577d156fe9b4ba518cad44181de8,
         type: 3}
@@ -14206,6 +14231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5603726406490129191, guid: 96098947365522440add43454a393d25,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5603726406490129191, guid: 96098947365522440add43454a393d25,
         type: 3}

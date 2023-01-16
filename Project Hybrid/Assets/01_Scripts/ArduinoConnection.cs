@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using UnityEngine;
 
-public class ArduinoConnection : MonoBehaviour
+public static class ArduinoConnection
 {
-    [SerializeField] string usbPort;
-    [SerializeField] int bautRate;
-    SerialPort dataStream;
+    public static string usbPort;
+    public static int bautRate;
+    private static SerialPort dataStream;
 
-    private string recievedString;
-    private string[] recievedData;
+    public static float greenSwitchData;
+    public static float yellowSwitchData;
+    public static float blueSwitchData;
+    public static float redSwitchData;
 
-    public float greenSwitchData;
-    public float yellowSwitchData;
-    public float blueSwitchData;
-    public float redSwitchData;
+    private static string recievedString;
+    private static string[] recievedData;
 
-    private void Awake()
+    public static void Awake()
     {
         dataStream = new SerialPort(usbPort, bautRate);
     }
 
-    private void Start()
+    public static void Start()
     {
         dataStream.Open(); //initiate stream
     }
 
-    private void Update()
+    public static void Update()
     {
         recievedString = dataStream.ReadLine();
         recievedData = recievedString.Split(",");
@@ -37,4 +37,5 @@ public class ArduinoConnection : MonoBehaviour
         blueSwitchData = float.Parse(recievedData[2]);
         redSwitchData = float.Parse(recievedData[3]);
     }
+
 }

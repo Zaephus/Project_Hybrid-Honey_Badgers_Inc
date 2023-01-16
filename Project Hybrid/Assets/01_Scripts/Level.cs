@@ -23,6 +23,7 @@ public class Level : MonoBehaviour {
 
         countdownCanvas.SetActive(true);
         countdownTimer = countdownDuration;
+        countdownText.text = countdownTimer.ToString();
 
         trainController.IsPaused = true;
         
@@ -34,6 +35,6 @@ public class Level : MonoBehaviour {
 
         countdownCanvas.SetActive(false);
         trainController.IsPaused = false;
-        
+
     }
 }

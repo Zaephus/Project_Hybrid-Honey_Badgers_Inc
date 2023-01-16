@@ -126,7 +126,20 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject endMenu;
 
+    [SerializeField]
+    private string usbPort;
+    [SerializeField]
+    private int bautRate;
+
+    private void Awake() {
+        ArduinoConnection.usbPort = usbPort;
+        ArduinoConnection.bautRate = bautRate;
+        ArduinoConnection.Awake();
+    }
+
     private void Start() {
+
+        ArduinoConnection.Start();
 
         gameState = GameState.StartMenu;
 
@@ -138,6 +151,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Update() {
+        ArduinoConnection.Update();
         InputManager.Update();
 
         if(Input.GetKeyDown(KeyCode.Escape)) {
