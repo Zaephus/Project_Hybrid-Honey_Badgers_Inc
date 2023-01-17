@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 
                 case GameState.StartMenu:
 
+                    levelIndex = -1;
+
                     startMenu.SetActive(true);
                     nextLevelMenu.SetActive(false);
                     failedMenu.SetActive(false);
