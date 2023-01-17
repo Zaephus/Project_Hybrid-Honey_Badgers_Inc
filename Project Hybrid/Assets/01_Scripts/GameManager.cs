@@ -126,6 +126,13 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject endMenu;
 
+    private ArduinoConnection arduinoConnection;
+
+    private void Awake() {
+        arduinoConnection = GetComponent<ArduinoConnection>();
+        InputManager.arduinoConnection = arduinoConnection;
+    }
+
     private void Start() {
 
         gameState = GameState.StartMenu;

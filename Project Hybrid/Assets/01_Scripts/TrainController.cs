@@ -72,6 +72,7 @@ public class TrainController : MonoBehaviour {
         
         if(nextPath == null || nextPath.pathPoints.Count == 0) {
             HitDeadEnd?.Invoke();
+            AudioManager.instance.Play("Dead End Sound");
             Debug.LogWarning("Dead End");
         }
         else {

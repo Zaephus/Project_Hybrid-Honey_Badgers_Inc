@@ -35,21 +35,26 @@ public class SwitchTrack : BaseTrack {
     public InputType inputType;
 
     private void Start() {
+        ChangeIcon();
         switch(inputType) {
             case InputType.Green:
-                InputManager.GreenSwitchPressed += ChangeTracks;
+                InputManager.GreenSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.GreenLeverPulled += ChangeTracks;
                 break;
 
             case InputType.Yellow:
-                InputManager.YellowSwitchPressed += ChangeTracks;
+                InputManager.YellowSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.YellowLeverPulled += ChangeTracks;
                 break;
 
             case InputType.Blue:
-                InputManager.BlueSwitchPressed += ChangeTracks;
+                InputManager.BlueSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.BlueLeverPulled += ChangeTracks;
                 break;
 
             case InputType.Red:
-                InputManager.RedSwitchPressed += ChangeTracks;
+                InputManager.RedSwitchPressed += ChangeTracksFromKeyboard;
+                InputManager.RedLeverPulled += ChangeTracks;
                 break;
 
         }
@@ -71,43 +76,128 @@ public class SwitchTrack : BaseTrack {
         }
     }
 
-    public void ChangeTracks()
-    {
-        Debug.Log(name + "with type of " + inputType + "switched.");
-        if(state == SwitchState.One)
-        {
-            state = SwitchState.Two;
-            path.pathPoints = pathTwo.pathPoints;
-            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
-            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
+    public void ChangeTracksFromKeyboard() {
+        if(state == SwitchState.One) {
+            ChangeTracks(true);
         }
-        else
-        {
+        else if(state == SwitchState.Two) {
+            ChangeTracks(false);
+        }
+    }
+
+    public void ChangeTracks(bool _state)
+    {
+
+        AudioManager.instance.Play("Switch Click Sound");
+
+        if(!_state) {
             state = SwitchState.One;
             path.pathPoints = pathOne.pathPoints;
             switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
             switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
         }
+        else if(_state) {
+            state = SwitchState.Two;
+            path.pathPoints = pathTwo.pathPoints;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
+        } 
+
+        // Debug.Log(name + "with type of " + inputType + "switched.");
+        // if(state == SwitchState.One)
+        // {
+        //     state = SwitchState.Two;
+        //     path.pathPoints = pathTwo.pathPoints;
+        //     switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
+        //     switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
+        // }
+        // else
+        // {
+        //     state = SwitchState.One;
+        //     path.pathPoints = pathOne.pathPoints;
+        //     switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
+        //     switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
+        // }
     }
 
     public void OnDestroy() {
         switch(inputType) {
             case InputType.Green:
-                InputManager.GreenSwitchPressed -= ChangeTracks;
+                InputManager.GreenSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.GreenLeverPulled -= ChangeTracks;
                 break;
 
             case InputType.Yellow:
-                InputManager.YellowSwitchPressed -= ChangeTracks;
+                InputManager.YellowSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.YellowLeverPulled -= ChangeTracks;
                 break;
 
             case InputType.Blue:
-                InputManager.BlueSwitchPressed -= ChangeTracks;
+                InputManager.BlueSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.BlueLeverPulled -= ChangeTracks;
                 break;
 
             case InputType.Red:
-                InputManager.RedSwitchPressed -= ChangeTracks;
+                InputManager.RedSwitchPressed -= ChangeTracksFromKeyboard;
+                InputManager.RedLeverPulled -= ChangeTracks;
                 break;
 
         }
     }
+
+    public void ChangeIcon() {
+
+        switch(inputType) {
+
+            case InputType.Green:
+                greenInputIcon.SetActive(true);
+                yellowInputIcon.SetActive(false);
+                blueInputIcon.SetActive(false);
+                redInputIcon.SetActive(false);
+
+                greenInputIcon.transform.rotation = Quaternion.identity;
+                yellowInputIcon.transform.rotation = Quaternion.identity;
+                blueInputIcon.transform.rotation = Quaternion.identity;
+                redInputIcon.transform.rotation = Quaternion.identity;
+                break;
+
+            case InputType.Yellow:
+                greenInputIcon.SetActive(false);
+                yellowInputIcon.SetActive(true);
+                blueInputIcon.SetActive(false);
+                redInputIcon.SetActive(false);
+
+                greenInputIcon.transform.rotation = Quaternion.identity;
+                yellowInputIcon.transform.rotation = Quaternion.identity;
+                blueInputIcon.transform.rotation = Quaternion.identity;
+                redInputIcon.transform.rotation = Quaternion.identity;
+                break;
+
+            case InputType.Blue:
+                greenInputIcon.SetActive(false);
+                yellowInputIcon.SetActive(false);
+                blueInputIcon.SetActive(true);
+                redInputIcon.SetActive(false);
+
+                greenInputIcon.transform.rotation = Quaternion.identity;
+                yellowInputIcon.transform.rotation = Quaternion.identity;
+                blueInputIcon.transform.rotation = Quaternion.identity;
+                redInputIcon.transform.rotation = Quaternion.identity;
+                break;
+
+            case InputType.Red:
+                greenInputIcon.SetActive(false);
+                yellowInputIcon.SetActive(false);
+                blueInputIcon.SetActive(false);
+                redInputIcon.SetActive(true);
+
+                greenInputIcon.transform.rotation = Quaternion.identity;
+                yellowInputIcon.transform.rotation = Quaternion.identity;
+                blueInputIcon.transform.rotation = Quaternion.identity;
+                redInputIcon.transform.rotation = Quaternion.identity;
+                break;
+
+        }
+    }
+
 }

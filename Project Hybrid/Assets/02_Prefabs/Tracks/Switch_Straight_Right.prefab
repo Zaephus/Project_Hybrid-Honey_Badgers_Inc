@@ -441,6 +441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue_Icon_Square
       objectReference: {fileID: 0}
+    - target: {fileID: 5282959141869007630, guid: 0e2d971d98cffe94fa0f183aaf4cbf8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2d971d98cffe94fa0f183aaf4cbf8f, type: 3}
 --- !u!4 &6142150053377505949 stripped
@@ -546,6 +551,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Yellow_Icon_Triangle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616389780579618317, guid: c6fa2521a2311a94391ecc307cb5bfa9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996011131481969847, guid: c6fa2521a2311a94391ecc307cb5bfa9,
         type: 3}
@@ -853,6 +863,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Red_Icon_Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409359203474370936, guid: e04527b8923ddb74d9f00e30c374cbc5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e04527b8923ddb74d9f00e30c374cbc5, type: 3}
