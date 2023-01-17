@@ -135,6 +135,11 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
 
+        if(Display.displays.Length > 1) {
+            Display.displays[1].Activate();
+            Display.displays[1].SetParams(1920, 1080, 0 , 0);
+        }
+
         gameState = GameState.StartMenu;
 
         EndPoint.EndPointReached += EndLevel;
