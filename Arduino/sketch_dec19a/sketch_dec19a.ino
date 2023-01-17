@@ -1,31 +1,29 @@
-
-int led_pin = 4;
-int potPin = A3;
-int potVal = 0;
+int potPin1 = A0;
+int potPin2 = A1;
+int potPin3 = A2;
+int potPin4 = A3;
+int potVal1 = 0;
+int potVal2 = 0;
+int potVal3 = 0;
+int potVal4 = 0;
 
 void setup() {
-  pinMode(led_pin, OUTPUT);
   Serial.begin(19200);
 }
 
 void loop() {
- potVal = analogRead(potPin);   // read the potentiometer value at the input pin
- Serial.print(potVal);
+ potVal1 = analogRead(potPin1);   // read the potentiometer value at the input pin
+ potVal2 = analogRead(potPin2);   // read the potentiometer value at the input pin
+ potVal3 = analogRead(potPin3);   // read the potentiometer value at the input pin
+ potVal4 = analogRead(potPin4);   // read the potentiometer value at the input pin
+ Serial.print(potVal1);
  Serial.print(",");
- Serial.print(2014);
+ Serial.print(potVal2);
  Serial.print(",");
- Serial.print(4);
+ Serial.print(potVal3);
  Serial.print(",");
- Serial.print(200);
+ Serial.print(potVal4);
  Serial.println();
-   if (potVal < 512)  // Lowest third of the potentiometer's range (0-340)
-  {
-    digitalWrite(led_pin, HIGH); 
-  }
-    if (potVal > 512)  // Lowest third of the potentiometer's range (0-340)
-    {
-    digitalWrite(led_pin, LOW);     
-    }
  delay(20);
 
 }
