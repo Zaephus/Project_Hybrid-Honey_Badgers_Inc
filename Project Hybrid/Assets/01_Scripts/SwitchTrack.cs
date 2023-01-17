@@ -38,23 +38,19 @@ public class SwitchTrack : BaseTrack {
         ChangeIcon();
         switch(inputType) {
             case InputType.Green:
-                InputManager.GreenSwitchPressed += ChangeTracksFromKeyboard;
-                InputManager.GreenLeverPulled += ChangeTracks;
+                InputManager.GreenSwitchPressed += ChangeTracks;
                 break;
 
             case InputType.Yellow:
-                InputManager.YellowSwitchPressed += ChangeTracksFromKeyboard;
-                InputManager.YellowLeverPulled += ChangeTracks;
+                InputManager.YellowSwitchPressed += ChangeTracks;
                 break;
 
             case InputType.Blue:
-                InputManager.BlueSwitchPressed += ChangeTracksFromKeyboard;
-                InputManager.BlueLeverPulled += ChangeTracks;
+                InputManager.BlueSwitchPressed += ChangeTracks;
                 break;
 
             case InputType.Red:
-                InputManager.RedSwitchPressed += ChangeTracksFromKeyboard;
-                InputManager.RedLeverPulled += ChangeTracks;
+                InputManager.RedSwitchPressed += ChangeTracks;
                 break;
 
         }
@@ -76,70 +72,43 @@ public class SwitchTrack : BaseTrack {
         }
     }
 
-    public void ChangeTracksFromKeyboard() {
-        if(state == SwitchState.One) {
-            ChangeTracks(true);
-        }
-        else if(state == SwitchState.Two) {
-            ChangeTracks(false);
-        }
-    }
-
-    public void ChangeTracks(bool _state)
+    public void ChangeTracks()
     {
 
-        AudioManager.instance.Play("Switch Click Sound");
-
-        if(!_state) {
+        Debug.Log(name + "with type of " + inputType + "switched.");
+        if(state == SwitchState.One)
+        {
+            state = SwitchState.Two;
+            path.pathPoints = pathTwo.pathPoints;
+            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
+            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
+        }
+        else
+        {
             state = SwitchState.One;
             path.pathPoints = pathOne.pathPoints;
             switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
             switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
         }
-        else if(_state) {
-            state = SwitchState.Two;
-            path.pathPoints = pathTwo.pathPoints;
-            switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
-            switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
-        } 
 
-        // Debug.Log(name + "with type of " + inputType + "switched.");
-        // if(state == SwitchState.One)
-        // {
-        //     state = SwitchState.Two;
-        //     path.pathPoints = pathTwo.pathPoints;
-        //     switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = false;
-        //     switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = true;
-        // }
-        // else
-        // {
-        //     state = SwitchState.One;
-        //     path.pathPoints = pathOne.pathPoints;
-        //     switchStateOneIndicator.GetComponent<MeshRenderer>().enabled = true;
-        //     switchStateTwoIndicator.GetComponent<MeshRenderer>().enabled = false;
-        // }
     }
 
     public void OnDestroy() {
         switch(inputType) {
             case InputType.Green:
-                InputManager.GreenSwitchPressed -= ChangeTracksFromKeyboard;
-                InputManager.GreenLeverPulled -= ChangeTracks;
+                InputManager.GreenSwitchPressed -= ChangeTracks;
                 break;
 
             case InputType.Yellow:
-                InputManager.YellowSwitchPressed -= ChangeTracksFromKeyboard;
-                InputManager.YellowLeverPulled -= ChangeTracks;
+                InputManager.YellowSwitchPressed -= ChangeTracks;
                 break;
 
             case InputType.Blue:
-                InputManager.BlueSwitchPressed -= ChangeTracksFromKeyboard;
-                InputManager.BlueLeverPulled -= ChangeTracks;
+                InputManager.BlueSwitchPressed -= ChangeTracks;
                 break;
 
             case InputType.Red:
-                InputManager.RedSwitchPressed -= ChangeTracksFromKeyboard;
-                InputManager.RedLeverPulled -= ChangeTracks;
+                InputManager.RedSwitchPressed -= ChangeTracks;
                 break;
 
         }

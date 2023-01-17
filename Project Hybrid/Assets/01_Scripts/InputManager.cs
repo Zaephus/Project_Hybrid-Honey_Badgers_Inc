@@ -10,21 +10,16 @@ public static class InputManager {
     public static Action BlueSwitchPressed;
     public static Action RedSwitchPressed;
 
-    public static Action<bool> GreenLeverPulled;
-    public static Action<bool> YellowLeverPulled;
-    public static Action<bool> BlueLeverPulled;
-    public static Action<bool> RedLeverPulled;
-
     public static Action AnySwitchPressed;
     
     public static bool isLevelPaused;
 
     public static ArduinoConnection arduinoConnection;
 
-    private static float lastGreenReading;
-    private static float lastYellowReading;
-    private static float lastBlueReading;
-    private static float lastRedReading;
+    private static bool isInGreenRange;
+    private static bool isInYellowRange;
+    private static bool isInBlueRange;
+    private static bool isInRedRange;
 
     public static void Update() {
 
@@ -59,60 +54,48 @@ public static class InputManager {
 
         #region levers
 
-        if(arduinoConnection.greenSwitchData <= 160 && lastGreenReading > 160) {
-            lastGreenReading = 160;
-            GreenLeverPulled?.Invoke(false);
+        if(arduinoConnection.greenSwitchData >= 160 && arduinoConnection.greenSwitchData <= 200 && !isInGreenRange) {
+            isInGreenRange = true;
+            if(!isLevelPaused) {
+                GreenSwitchPressed?.Invoke();
+            }
             AnySwitchPressed?.Invoke();
         }
-        else if(arduinoConnection.greenSwitchData >= 200 && lastGreenReading < 200) {
-            lastGreenReading = 160;
-            GreenLeverPulled?.Invoke(true);
-            AnySwitchPressed?.Invoke();
-        }
-        else {
-            lastGreenReading = arduinoConnection.greenSwitchData;
+        else if(arduinoConnection.greenSwitchData < 160 || arduinoConnection.greenSwitchData > 200) {
+            isInGreenRange = false;
         }
 
-        if(arduinoConnection.yellowSwitchData <= 160 && lastYellowReading > 160) {
-            lastYellowReading = 160;
-            YellowLeverPulled?.Invoke(false);
+        if(arduinoConnection.yellowSwitchData >= 160 && arduinoConnection.yellowSwitchData <= 200 && !isInYellowRange) {
+            isInYellowRange = true;
+            if(!isLevelPaused) {
+                YellowSwitchPressed?.Invoke();
+            }
             AnySwitchPressed?.Invoke();
         }
-        else if(arduinoConnection.yellowSwitchData >= 200 && lastYellowReading < 200) {
-            lastYellowReading = 160;
-            YellowLeverPulled?.Invoke(true);
-            AnySwitchPressed?.Invoke();
-        }
-        else {
-            lastYellowReading = arduinoConnection.yellowSwitchData;
+        else if(arduinoConnection.yellowSwitchData < 160 || arduinoConnection.yellowSwitchData > 200) {
+            isInYellowRange = false;
         }
 
-        if(arduinoConnection.blueSwitchData <= 160 && lastBlueReading > 160) {
-            lastBlueReading = 160;
-            BlueLeverPulled?.Invoke(false);
+        if(arduinoConnection.blueSwitchData >= 160 && arduinoConnection.blueSwitchData <= 200 && !isInBlueRange) {
+            isInBlueRange = true;
+            if(!isLevelPaused) {
+                BlueSwitchPressed?.Invoke();
+            }
             AnySwitchPressed?.Invoke();
         }
-        else if(arduinoConnection.blueSwitchData >= 200 && lastBlueReading < 200) {
-            lastBlueReading = 160;
-            BlueLeverPulled?.Invoke(true);
-            AnySwitchPressed?.Invoke();
-        }
-        else {
-            lastBlueReading = arduinoConnection.blueSwitchData;
+        else if(arduinoConnection.blueSwitchData < 160 || arduinoConnection.blueSwitchData > 200) {
+            isInBlueRange = false;
         }
 
-        if(arduinoConnection.redSwitchData <= 160 && lastRedReading > 160) {
-            lastRedReading = 160;
-            RedLeverPulled?.Invoke(false);
+        if(arduinoConnection.redSwitchData >= 160 && arduinoConnection.redSwitchData <= 200 && !isInRedRange) {
+            isInRedRange = true;
+            if(!isLevelPaused) {
+                RedSwitchPressed?.Invoke();
+            }
             AnySwitchPressed?.Invoke();
         }
-        else if(arduinoConnection.redSwitchData >= 200 && lastRedReading < 200) {
-            lastRedReading = 160;
-            RedLeverPulled?.Invoke(true);
-            AnySwitchPressed?.Invoke();
-        }
-        else {
-            lastRedReading = arduinoConnection.redSwitchData;
+        else if(arduinoConnection.redSwitchData < 160 || arduinoConnection.redSwitchData > 200) {
+            isInRedRange = false;
         }
 
         #endregion
