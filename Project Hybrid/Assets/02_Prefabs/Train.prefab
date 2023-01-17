@@ -220,6 +220,7 @@ MonoBehaviour:
   - {fileID: 1436565653555053843}
   - {fileID: 1436565653690458840}
   trackGenerator: {fileID: 0}
+  smoke: {fileID: 4430301158592404448}
 --- !u!65 &5603726406490129190
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1494,6 +1495,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d45e2636da583245858f0b1e07113bc, type: 3}
+--- !u!1 &4430301158592404448 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4086559800516189161, guid: 6d45e2636da583245858f0b1e07113bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 418262001304616969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4430301158592404461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4086559800516189156, guid: 6d45e2636da583245858f0b1e07113bc,
