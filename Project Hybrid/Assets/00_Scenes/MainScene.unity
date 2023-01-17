@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -212,11 +212,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7352265100165253999, guid: 0b78bd58794f82044a5b4969b43e9d5e,
-        type: 3}
-      propertyPath: m_TargetDisplay
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b78bd58794f82044a5b4969b43e9d5e, type: 3}
 --- !u!1001 &1208495457
@@ -274,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
         type: 3}
       propertyPath: levels.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
         type: 3}
@@ -286,11 +281,17 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[1]
       value: 
-      objectReference: {fileID: 2609494634359416439, guid: 6dabf668b7fa94b498976718023884be,
+      objectReference: {fileID: 917531977228618295, guid: e8fbf26509c168241befffdaebd98084,
         type: 3}
     - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
         type: 3}
       propertyPath: levels.Array.data[2]
+      value: 
+      objectReference: {fileID: 2609494634359416439, guid: 6dabf668b7fa94b498976718023884be,
+        type: 3}
+    - target: {fileID: 6533785831844570472, guid: ab2a87eec1940fc469a747f28fd37f5a,
+        type: 3}
+      propertyPath: levels.Array.data[3]
       value: 
       objectReference: {fileID: 2688034679062848746, guid: c4858978c4caac8408c3da8b8ce87262,
         type: 3}

@@ -66,8 +66,9 @@ public class TrackGeneratorEditor : Editor {
                     obj.transform.SetParent(trackGen.transform);
                     obj.transform.position = new Vector3(i, 0, j);
                     obj.transform.rotation = Quaternion.identity;
-                    //obj.GetComponent<TrackSelector>().SwitchChild((int)obj.GetComponent<TrackSelector>().type);
-                    trackGen.rows[i].tracks.Add(obj.GetComponent<TrackSelector>());
+                    TrackSelector selector = obj.GetComponent<TrackSelector>();
+                    selector.Inititialize(trackGen);
+                    trackGen.rows[i].tracks.Add(selector);
                 }
             }
             else if(trackGen.amountY < trackGen.rows[i].tracks.Count) {
