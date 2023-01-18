@@ -38,19 +38,19 @@ public class SwitchTrack : BaseTrack {
         ChangeIcon();
         switch(inputType) {
             case InputType.Green:
-                InputManager.GreenSwitchPressed += ChangeTracks;
+                GameManager.GreenSwitchPressed += ChangeTracks;
                 break;
 
             case InputType.Yellow:
-                InputManager.YellowSwitchPressed += ChangeTracks;
+                GameManager.YellowSwitchPressed += ChangeTracks;
                 break;
 
             case InputType.Blue:
-                InputManager.BlueSwitchPressed += ChangeTracks;
+                GameManager.BlueSwitchPressed += ChangeTracks;
                 break;
 
             case InputType.Red:
-                InputManager.RedSwitchPressed += ChangeTracks;
+                GameManager.RedSwitchPressed += ChangeTracks;
                 break;
 
         }
@@ -98,19 +98,19 @@ public class SwitchTrack : BaseTrack {
     public void OnDestroy() {
         switch(inputType) {
             case InputType.Green:
-                InputManager.GreenSwitchPressed -= ChangeTracks;
+                GameManager.GreenSwitchPressed -= ChangeTracks;
                 break;
 
             case InputType.Yellow:
-                InputManager.YellowSwitchPressed -= ChangeTracks;
+                GameManager.YellowSwitchPressed -= ChangeTracks;
                 break;
 
             case InputType.Blue:
-                InputManager.BlueSwitchPressed -= ChangeTracks;
+                GameManager.BlueSwitchPressed -= ChangeTracks;
                 break;
 
             case InputType.Red:
-                InputManager.RedSwitchPressed -= ChangeTracks;
+                GameManager.RedSwitchPressed -= ChangeTracks;
                 break;
 
         }

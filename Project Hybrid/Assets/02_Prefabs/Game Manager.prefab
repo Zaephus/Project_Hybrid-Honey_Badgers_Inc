@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6533785831844570479}
   - component: {fileID: 6533785831844570472}
   - component: {fileID: 6533785831844570478}
-  - component: {fileID: -1557917186122002058}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -51,8 +50,6 @@ MonoBehaviour:
   nextLevelMenu: {fileID: 0}
   failedMenu: {fileID: 0}
   endMenu: {fileID: 0}
-  usbPort: 
-  bautRate: 0
 --- !u!114 &6533785831844570478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,21 +108,3 @@ MonoBehaviour:
     pitch: 1
     isLoop: 0
     audioSource: {fileID: 0}
---- !u!114 &-1557917186122002058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6533785831844570473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 426b7c45e41fa974d85f05cb6c172f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usbPort: COM3
-  bautRate: 19200
-  greenSwitchData: 0
-  yellowSwitchData: 0
-  blueSwitchData: 0
-  redSwitchData: 0

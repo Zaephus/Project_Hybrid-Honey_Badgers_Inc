@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour {
         NextLevelMenu = 1,
         FailedMenu = 2,
         EndMenu = 3,
-        Running = 4
+        PauseMenu = 4,
+        Running = 5
     }
     [SerializeField]
     private GameState gameState {
@@ -21,87 +23,116 @@ public class GameManager : MonoBehaviour {
 
                 case GameState.StartMenu:
 
+                    EscapePressed -= PauseGame;
+
                     levelIndex = -1;
 
                     startMenu.SetActive(true);
                     nextLevelMenu.SetActive(false);
                     failedMenu.SetActive(false);
                     endMenu.SetActive(false);
+                    pauseMenu.SetActive(false);
+
+                    buttonCanvas.SetActive(false);
                     
                     AudioManager.instance.StopAll();
                     AudioManager.instance.Play("Main Menu Music");
-
-                    InputManager.isLevelPaused = true;
                     if(currentLevel != null) {
                         Destroy(currentLevel.gameObject);
                         currentLevel = null;
                     }
-        
-                    InputManager.AnySwitchPressed += NextLevel;
 
                     break;
 
                 case GameState.NextLevelMenu:
 
+                    EscapePressed -= PauseGame;
+
                     startMenu.SetActive(false);
                     nextLevelMenu.SetActive(true);
                     failedMenu.SetActive(false);
                     endMenu.SetActive(false);
+                    pauseMenu.SetActive(false);
 
-                    InputManager.isLevelPaused = true;
+                    buttonCanvas.SetActive(false);
+
                     if(currentLevel != null) {
-                        currentLevel.trainController.IsPaused = true;
+                        currentLevel.IsPaused = true;
                     }
-        
-                    InputManager.AnySwitchPressed += NextLevel;
 
                     break;
 
                 case GameState.FailedMenu:
 
+                    EscapePressed -= PauseGame;
+
                     startMenu.SetActive(false);
                     nextLevelMenu.SetActive(false);
                     failedMenu.SetActive(true);
                     endMenu.SetActive(false);
+                    pauseMenu.SetActive(false);
 
-                    InputManager.isLevelPaused = true;
+                    buttonCanvas.SetActive(false);
+
                     if(currentLevel != null) {
-                        currentLevel.trainController.IsPaused = true;
+                        currentLevel.IsPaused = true;
                     }
-
-                    InputManager.AnySwitchPressed += RestartLevel;
 
                     break;
 
                 case GameState.EndMenu:
 
+                    EscapePressed -= PauseGame;
+
                     startMenu.SetActive(false);
                     nextLevelMenu.SetActive(false);
                     failedMenu.SetActive(false);
                     endMenu.SetActive(true);
+                    pauseMenu.SetActive(false);
 
-                    InputManager.isLevelPaused = true;
+                    buttonCanvas.SetActive(false);
+
                     if(currentLevel != null) {
-                        currentLevel.trainController.IsPaused = true;
+                        currentLevel.IsPaused = true;
                     }
-
-                    InputManager.AnySwitchPressed += EndGame;
 
                     break;
 
-                case GameState.Running:
+                case GameState.PauseMenu:
+
+                    EscapePressed -= PauseGame;
 
                     startMenu.SetActive(false);
                     nextLevelMenu.SetActive(false);
                     failedMenu.SetActive(false);
                     endMenu.SetActive(false);
+                    pauseMenu.SetActive(true);
+
+                    buttonCanvas.SetActive(false);
+
+                    if(currentLevel != null) {
+                        currentLevel.IsPaused = true;
+                    }
+
+                    break;
+
+                case GameState.Running:
+
+                    EscapePressed += PauseGame;
+
+                    startMenu.SetActive(false);
+                    nextLevelMenu.SetActive(false);
+                    failedMenu.SetActive(false);
+                    endMenu.SetActive(false);
+                    pauseMenu.SetActive(false);
+
+                    buttonCanvas.SetActive(true);
 
                     AudioManager.instance.Stop("Main Menu Music");
                     AudioManager.instance.Play("Ambient Sound");
 
-                    InputManager.isLevelPaused = false;
                     if(currentLevel != null) {
-                        currentLevel.trainController.IsPaused = false;
+                        currentLevel.IsPaused = false;
                     }
 
                     break;
@@ -111,6 +142,11 @@ public class GameManager : MonoBehaviour {
             state = value;
         }
     }
+
+    public static Action GreenSwitchPressed;
+    public static Action YellowSwitchPressed;
+    public static Action BlueSwitchPressed;
+    public static Action RedSwitchPressed;
 
     private GameState state;
 
@@ -127,13 +163,13 @@ public class GameManager : MonoBehaviour {
     private GameObject failedMenu;
     [SerializeField]
     private GameObject endMenu;
+    [SerializeField]
+    private GameObject pauseMenu;
 
-    private ArduinoConnection arduinoConnection;
+    [SerializeField]
+    private GameObject buttonCanvas;
 
-    private void Awake() {
-        arduinoConnection = GetComponent<ArduinoConnection>();
-        InputManager.arduinoConnection = arduinoConnection;
-    }
+    private Action EscapePressed;
 
     private void Start() {
 
@@ -152,14 +188,12 @@ public class GameManager : MonoBehaviour {
     }
 
     private void Update() {
-        InputManager.Update();
-
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            Application.Quit();
+            EscapePressed?.Invoke();
         }
     }
 
-    private void RestartLevel() {
+    public void RestartLevel() {
 
         if(currentLevel != null) {
             Destroy(currentLevel.gameObject);
@@ -174,11 +208,37 @@ public class GameManager : MonoBehaviour {
             Debug.LogWarning("Level " + levelIndex + " does not exist!");
         }
 
-        InputManager.AnySwitchPressed -= RestartLevel;
+    }
+
+    public void ButtonPressed(string _colour) {
+
+        switch(_colour) {
+
+            case "Green":
+                GreenSwitchPressed?.Invoke();
+                break;
+
+            case "Yellow":
+                YellowSwitchPressed?.Invoke();
+                break;
+
+            case "Blue":
+                BlueSwitchPressed?.Invoke();
+                break;
+            
+            case "Red":
+                RedSwitchPressed?.Invoke();
+                break;
+
+        }
 
     }
 
-    private void NextLevel() {
+    public void ResumeLevel() {
+        gameState = GameState.Running;
+    }
+
+    public void NextLevel() {
 
         levelIndex++;
 
@@ -194,8 +254,6 @@ public class GameManager : MonoBehaviour {
         else {
             Debug.LogWarning("Level " + levelIndex + " does not exist!");
         }
-
-        InputManager.AnySwitchPressed -= NextLevel;
 
     }
 
@@ -213,9 +271,12 @@ public class GameManager : MonoBehaviour {
         gameState = GameState.FailedMenu;
     }
 
-    private void EndGame() {
+    public void ReturnToStart() {
         gameState = GameState.StartMenu;
-        InputManager.AnySwitchPressed -= EndGame;
+    }
+
+    private void PauseGame() {
+        gameState = GameState.PauseMenu;
     }
 
 }
